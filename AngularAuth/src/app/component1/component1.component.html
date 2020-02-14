@@ -1,2 +1,4 @@
 <p>Auth</p>
-<a routerLink="/profile/1">OK</a>
+<input type="text" placeholder="Login" [(ngModel)]="loginval"/>
+<input type="password" placeholder="Password" [(ngModel)]="password"/>
+<button (click)="login()">Log in</button>
