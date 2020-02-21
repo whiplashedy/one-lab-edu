@@ -1,0 +1,26 @@
+<div class="main">
+    <div class="text" [ngClass]="{red:mynumber%2==0, blue: mynumber%2==1}">text</div>
+    <input type="text" 
+           placeholder="enter classname"
+           [(ngModel)]="myclass"
+           />
+    <input type="text" 
+           placeholder="enter number"
+           [(ngModel)]="mynumber"
+           />
+    <button (click)="changeColor()">change color</button>
+    
+    <div class="text blue info" 
+         *ngIf="mynumber%2==0">EVEN</div>
+    
+    <div class="text blue info" 
+         *ngIf="mynumber%2==1">ODD</div>
+    
+    <div class="text arrayElement"
+         *ngFor="let item of items; index as i;">
+    {{i}}:{{item.name}}
+    </div>
+    
+    <div class="text">Time: {{ time | async | date: 'mm:ss' }}</div>
+    
+</div>
