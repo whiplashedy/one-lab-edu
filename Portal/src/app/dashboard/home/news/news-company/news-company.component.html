@@ -1,0 +1,63 @@
+<div class="content">
+    <div class="top_content">
+        <div class="ava">
+            <img src="assets/img/Ellipse 2.1 (Stroke).png">
+        </div>
+        <div class="username">
+            <h1>ONE info</h1>
+        </div>
+        <div class="date">
+            <p>16:00 4 июля 2019</p>
+        </div>
+    </div>    
+    <div class="text">
+        <p>На этой неделе (4 - 10 июля) <span class="bold">дни рождения</span>
+             отмечают следующие сотрудники:</p>
+    </div>
+    <div *ngFor="let birthday of birthdays" class="birthdays">
+        <p> {{ birthday.day }}</p>
+        <img src="{{ birthday.urlToAva }}">
+        <h1>{{ birthday.name }}</h1>
+    </div>
+    <div class="more_info">
+            <a (click)="openDialog()">Подробнее</a>
+        <img src="assets/img/Vector.png">
+    </div>
+    <div class="top_content">
+        <div class="ava">
+            <img src="assets/img/Ellipse 2.1 (Stroke).png">
+        </div>
+        <div class="username">
+            <h1>ONE info</h1>
+        </div>
+        <div class="date">
+            <p>16:00 4 июля 2019</p>
+        </div>
+    </div>
+    <div class="text">
+        <p><span class="bold">Фотоотчет ONE Summer Capm 2019</span><br>
+        Фотографии с мероприятия ONE Summer Capm проводившегося 13 июля 2019 года. </p>
+    </div>   
+    <div class="photos" *ngFor="let photo of photos">
+        <img src="{{photo.url}}">
+    </div>
+    <div class="more_info">
+            <a (click)="openDialog()">Подробнее</a>
+        <img src="assets/img/Vector.png">
+    </div>
+    <div class="top_content">
+        <div class="ava">
+            <img src="assets/img/Ellipse 2.1 (Stroke).png">
+        </div>
+        <div class="username">
+            <h1>ONE info</h1>
+        </div>
+        <div class="date">
+            <p>16:00 4 июля 2019</p>
+        </div>
+    </div>
+    <div class="text">
+        <p><span class="bold">Фотоотчет ONE Summer Capm 2019</span><br>
+        Фотографии с мероприятия ONE Summer Capm проводившегося 13 июля 2019 года. </p>
+    </div> 
+</div>

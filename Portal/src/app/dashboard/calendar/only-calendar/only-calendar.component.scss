@@ -1,0 +1,61 @@
+
+@import url('https://fonts.googleapis.com/css?family=Tomorrow&display=swap');
+
+.calendar{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    margin: 0 auto;
+
+    .dates{
+
+        .month{
+            width: 100%;
+            height: auto;
+            position: relative;
+
+            .table{
+                text-align: center;
+                margin: 0 auto;
+                font-size: 12px;
+                font-weight: bold;
+                line-height: 40px;
+                user-select: none;
+            }
+
+            span{
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                border-bottom: 1px solid #E0E0E0;
+            }
+
+            .table td, .table th{
+                padding: 0 7px;
+                font-weight: 500;
+                font-size: 12px;
+                color: #797979;
+                text-align: center;
+                margin: 25px 0;
+            }
+        }
+
+        .month_navigation{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+
+            .arrows{
+                font-family: 'Tomorrow', sans-serif;
+                font-size: 24px;
+                cursor: pointer;
+                position: relative;
+                z-index: 999;
+                user-select: none;
+            }
+        }
+    }
+}

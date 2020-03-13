@@ -1,0 +1,104 @@
+:host p{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #2C2C2C;
+}
+
+:host h1{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    color: #2C2C2C;
+}
+.date p{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #AFAFAF;
+}
+
+.top_content{
+    display: flex;
+    margin: 20px 0px 10px 0px;
+}
+
+.top_content img{
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.top_content .username{
+    margin-top: 10px;
+    height: 20px;
+    width: 245px;
+}
+
+.top_content .date{
+    margin: 10px 0px 0px 148px;
+}
+
+.photos{
+    display: inline-flex;
+    margin-right: 10px;
+}
+.photos img{
+    margin: 10px 13px 10px 0px;
+}
+
+.photos img:last-child{
+    margin-right: 0px;
+}
+
+.more_info{
+    border-bottom: 1px solid #AFAFAF;
+    display: flex;
+    padding-bottom: 15px ;
+    margin-top: 5px ;
+}
+.more_info a{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    color: #AFAFAF;
+}
+
+.more_info img{
+    vertical-align: middle;
+    position: relative;
+    margin-left: 10px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.birthdays{
+    display: flex;
+    margin-top: 20px;
+}
+
+.birthdays p{
+    margin-top: 8px;
+}
+
+.birthdays img{
+    margin: 0px 20px 0px 40px ;
+}
+
+

@@ -1,0 +1,30 @@
+
+.search_block{
+    position: absolute;
+    z-index: 2;
+    width: 650px;
+}
+
+
+.search .input-box {
+    position: relative;
+    margin-left: 10px;
+    input {
+        width: 300px;
+        font-size: 16px;
+        color: #8B8B8B;
+        box-sizing: border-box;
+        padding: 10px 10px 10px 45px;
+        border: none;
+    }
+    input:focus {
+        outline: none;
+    }
+    img {
+        position: absolute;
+        top: 8px;
+        left: 10px;
+    }
+}
+
+

@@ -1,0 +1,31 @@
+
+
+<div class="grid">
+  <div class="left">
+    <img routerLink="/auth/login" class="back-btn" src="../../../assets/icons/arrow_left.svg" alt="">
+    <div class="title">Восстановление пароля</div>
+    <form class="form-auth" [formGroup]="forgetForm" (ngSubmit)="submit(forgetForm.value)">
+      <div class="field">
+          <label>
+              <input type="email" formControlName="email" placeholder="Введите адрес эл. почты">
+          </label>
+      </div>
+      <button [disabled]="forgetForm.invalid" type="submit" class="button button-red">Восстановить</button>
+    </form>
+  </div>
+  <div class="right">
+    <div class="subtitle">
+      Введите адрес вашей электронной почты.
+      Вам будет отправлена ссылка для восстановления пароля.
+      <br><br>
+    </div>
+    <div *ngIf="(forgetForm.touched && forgetForm.invalid)">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="redSubTitle">
+          <p *ngIf="email.errors.required">E-mail обязателен</p>
+        <p *ngIf="email.errors.minlength">E-mail должен содержать не менее 5 символов.</p>
+        <p *ngIf="email.errors.email">Введите правильный E-mail</p>
+      </div>
+    </div>
+  </div>
+</div>
+

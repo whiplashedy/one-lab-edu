@@ -1,0 +1,39 @@
+<div class="teams scroll">
+    <div class="user_section" *ngFor="let team of teams">
+        <div class="user_block">
+            <div class="user_details">
+                <div class="flex-container">
+                    <div class="user_img">
+                        <img src="assets/img/{{team.user_avatar}}" alt="">
+                    </div>
+                    <div class="user_detail">
+                        <h3>{{team.username}}</h3>
+                        <div class="user_position_detail">
+                            <div class="user_position">
+                                <span>{{team.position}}</span>
+                            </div>
+                            <div class="position_circle"></div>
+                            <div class="user_qualification"><span>{{team.qualification}}</span></div>
+                        </div>
+                        <div class="user_projects">
+                            <ng-container *ngFor="let project of team.projects">
+                                <a href="#">{{project}}</a>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="more_btn">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="block_more">
+                            <ul>
+                                <li><a href="#">Подписаться</a></li>
+                                <li><a href="#">Написать сообщение</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

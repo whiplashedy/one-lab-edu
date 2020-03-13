@@ -1,0 +1,91 @@
+.header {
+    border-bottom: 1px solid #F0F0F0;
+}
+.header-container {
+    margin: 0 auto;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    height: 79px;
+    width: 1224px;
+    display: grid;
+    grid-template-columns: 130px auto 150px 215px;
+    .logo,
+    .notification,
+    .profile {
+        display: flex;
+        align-items: center;
+    }
+    .logo, .notification {
+        justify-content: center;
+    }
+    .notification .notification-box {
+        cursor: pointer;
+        position: relative;
+        div.have {
+            height: 12px;
+            width: 12px;
+            background: #00D115;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 5px;
+            right: -5px;
+            border: 2px solid white;
+        }
+    }
+    .profile {
+        position: relative;
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 999;
+            top: 80px;
+            right: 0;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .profile-box {
+            cursor: pointer;
+            height: 44px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto 44px auto;
+            .user-name, .photo, .profile-box, .arrow {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .user-name span {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+                color: #000000;
+            }
+            .photo img {
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+            }
+        }
+    }
+    .profile:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        cursor: pointer;
+    }
+}
+
+
+

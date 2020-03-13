@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Редактировать профиль</h1>
+<div mat-dialog-content>
+
+    <form [formGroup]="userForm" class="example-container" (ngSubmit)="submit()">
+        <mat-form-field>
+            <input formControlName="fullName" name="fullName" matInput placeholder="ФИО">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Пол" formControlName="gender" name="gender">
+                <mat-option value="male">Мужчина</mat-option>
+                <mat-option value="female">Женщина</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input formControlName="phone" name="phone" matInput placeholder="Телефон">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input [matDatepicker]="picker" (click)="picker.open()" formControlName="birthday" name="birthday" matInput placeholder="Дата рождения">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input formControlName="status" name="status" matInput placeholder="Статус">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Тимлид</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let teamlead of teamleads" [value]="teamlead.title">
+                    {{ teamlead.title }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input formControlName="aboutMyself" name="aboutMyself" matInput placeholder="О себе">
+        </mat-form-field>
+    </form>
+
+</div>
+<div mat-dialog-actions style="padding: 10px;">
+    <button mat-button (click)="onNoClick()">Отмена</button>
+    <button mat-button [disabled]="userForm.invalid" (click)="submit()">Сохранить</button>
+</div>

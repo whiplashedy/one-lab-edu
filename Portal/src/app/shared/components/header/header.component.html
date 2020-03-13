@@ -1,0 +1,32 @@
+<div class="header">
+    <div class="header-container">
+        <div class="logo">
+            <img src="assets/img/portal-logo.svg" alt="logo">
+        </div>
+        <app-search></app-search>
+        <div class="notification">
+            <!--<div class="notification-box">
+                <div class="have"></div>
+                <img src="assets/icons/header/notification.svg" alt="notifications">
+            </div>-->
+        </div>
+        <div class="profile">
+            <div class="profile-box">
+                <div class="user-name">
+                    <span>{{user.fullName}}</span>
+                </div>
+                <div class="photo">
+                    <img [src]="user.photo ? user.photo : 'assets/img/default-ava.jpg'" [alt]="user.fullName">
+                </div>
+                <div class="arrow">
+                    <img src="assets/icons/header/arrow_down.svg" alt="arrow">
+                </div>
+            </div>
+            <div class="dropdown-content">
+                <a href="#" routerLink="/dashboard/profile">Мой профиль</a>
+                <a (click)="openEditDialog(user)">Редактировать профиль</a>
+                <a href="#" (click)="logout()">Выход из системы</a>
+            </div>
+        </div>
+    </div>
+</div>

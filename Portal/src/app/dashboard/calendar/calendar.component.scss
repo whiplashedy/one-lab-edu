@@ -1,0 +1,87 @@
+
+:host {
+    background: #F6F6F6;
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+}
+
+
+#container {
+    width: 1224px;
+    margin: 0px auto;
+    display: grid;
+    grid-template-columns: 288px 598px 288px;
+    grid-gap: 0 25px;
+}
+
+.title_section{
+    width: 1224px;
+    margin: 0 auto;
+    padding: 25px;
+
+    h4{
+    font-size: 16px;
+    color: #8B8B8B;
+    font-weight: normal;
+    }
+}
+
+.left {
+    background: #fff;
+    border-radius: 5px;
+
+    h4{
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #939393;
+        padding: 22px 25px;
+    }
+}
+
+.center {
+    background: #fff;
+    border-radius: 5px;
+
+    .calendar_tabbar{
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .item:first-child{
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+
+        .item{
+            margin: 15px 0;
+            padding: 10px 20px;
+            outline: none;
+            cursor: pointer;
+
+            span{
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+        }
+
+        .calendar_tab_active{
+            margin: 15px 0;
+            padding: 10px 20px;
+            background: #F6F6F6;
+            outline: none;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ECECEC;
+        }
+
+    }
+
+}
+
+.right {
+
+}

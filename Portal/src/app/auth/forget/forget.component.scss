@@ -1,0 +1,78 @@
+.grid {
+  display: grid;
+  grid-template-columns: 704px 312px;
+
+  .left, .right {
+  height: 390px;
+  }
+  .left {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 35px 64px 80px 105px;
+    position: relative;
+    .title {
+      margin: 0 0 36px 2px;
+    }
+    .back-btn {
+      width: 12px;
+      height: 22px;
+      position: absolute;
+      top: 46px;
+      left: 52px;
+      cursor: pointer;
+    }
+  }
+  .right {
+    padding: 35px 22px;
+    background: rgba(0, 0, 0, 0.75);
+  }
+}
+.form-auth {
+  .field {
+    margin-bottom: 19px;
+    position: relative;
+    input {
+      letter-spacing: 0.3px;
+      font-size: 16px;
+      width: 391px;
+      padding: 17px 37px;
+      box-sizing: border-box;
+      border: 1px solid #BDBDBD;
+      color: #BDBDBD;
+      background: none;
+    }
+    img {
+      position: absolute;
+      right: 18px;
+      top: 15px;
+      width: 26px;
+    }
+  }
+}
+.title,
+.subtitle,
+.redSubTitle,
+.redSubTitle p {
+  color: #DCDCDC;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 130%;
+}
+.title {
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 44px;
+  margin-bottom: 19px;
+}
+.redSubTitle,
+.redSubTitle p {
+  color: #D10001;
+  margin-bottom: 23px;
+}
+
+.button-red {
+  margin-top: 0px;
+  background: #D10001;
+    border-radius: 5px
+;
+}

@@ -1,0 +1,66 @@
+<div id="container">
+    <div class="left">
+        <div class="userPanel">
+            <div class="left">
+                <img [src]="user.photo ? user.photo : 'assets/img/default-ava.jpg'" alt="">
+            </div>
+            <div class="right">
+                <span class="userName">{{user.fullName}}</span>
+                <span routerLink="/dashboard/profile" class="link">Перейти в профиль</span>
+                <img src="assets/icons/userPanel_arrowRight.svg" class="arrowRight">
+            </div>
+        </div>
+        <app-only-calendar></app-only-calendar>
+        <app-events></app-events>
+        <a class="my-calendar" routerLink="/dashboard/calendar/calendar-day">Перейти в Мой календарь <span>&gt;</span></a>
+    </div>
+    <div class="center">
+        <div class="tabbar">
+            <div class="item" routerLink="/dashboard/home/news" routerLinkActive="active">
+                <span>Новости</span>
+            </div>
+            <div class="item" routerLink="/dashboard/home/targets" routerLinkActive="active">
+                <span>Карта целей</span>
+            </div>
+            <div class="item" routerLink="/dashboard/home/team" routerLinkActive="active">
+                <span>Моя команда</span>
+            </div>
+            <div class="item" routerLink="/dashboard/home/projects" routerLinkActive="active">
+                <span>Проекты</span>
+            </div>
+        </div>
+        <div class="tabbar-container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="right">
+        <div class="lenta">
+            <img src="assets/icons/lentaConfig.svg" class="lentaConfig">
+            <div class="title">Лента активности</div>
+            <div class="lenta-container scroll">
+                <div class="date">Сегодня, 18 Июля 2019</div>
+                <div class="lenta-item" *ngFor="let item of lentaItems">
+                    <div class="user-info">
+                        <div class="dot-box">
+                            <div class="dot" [ngClass]="item.dot"></div>
+                        </div>
+                        <div class="photo">
+                            <img [src]="item.user.photo" alt="user">
+                        </div>
+                        <div class="fullName">
+                            <span>{{item.user.fio}}</span>
+                        </div>
+                        <div class="time">
+                            <span>{{item.time}}</span>
+                        </div>
+                    </div>
+                    <div class="info-area">
+                        <div class="info-title">{{item.info.title}}</div>
+                        <div class="info-desc">{{item.info.desc}}</div>
+                        <div *ngIf="item.info.comment" class="info-comment">{{item.info.comment}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

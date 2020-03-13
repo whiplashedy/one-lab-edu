@@ -1,0 +1,54 @@
+<div class="menu-container">
+    <div class="menu">
+        <div class="item" routerLink="/dashboard/home" routerLinkActive="active">
+            <div class="img">
+                <img class="svg" src="assets/icons/menu/home.svg" alt="home" title="Dashboard">
+            </div>
+            <span>Dashboard</span>
+        </div>
+        <div class="item" routerLink="/dashboard/profile" routerLinkActive="active">
+            <div class="img">
+                <img class="svg" src="assets/icons/menu/profile.svg" alt="profile" title="Профиль">
+            </div>
+            <span>Профиль</span>
+        </div>
+        <!--<div class="item" routerLink="/dashboard/company" routerLinkActive="active">
+            <div class="img">
+                <img class="svg" src="assets/icons/menu/company.svg" alt="company" title="Компания">
+            </div>
+            <span>Компания</span>
+        </div>-->
+        <div class="item" routerLink="/dashboard/organigram" routerLinkActive="active">
+            <div class="img">
+                <img class="svg" src="assets/icons/menu/org.svg" alt="org" title="Органиграмма">
+            </div>
+            <span>Органиграмма</span>
+        </div>
+        <div class="item" routerLink="/dashboard/calendar" routerLinkActive="active">
+            <div class="img">
+                <img class="svg" src="assets/icons/menu/calendar.svg" alt="calendar" title="Мой календарь">
+            </div>
+            <span>Мой календарь</span>
+        </div>
+        <!--<div class="item" routerLink="/dashboard/faq" routerLinkActive="active">
+            <div class="img">
+                <img class="svg" src="assets/icons/menu/faq.svg" alt="faq" title="FAQ">
+            </div>
+            <span>FAQ</span>
+        </div>-->
+        <div class="item" routerLink="/dashboard/gallery" routerLinkActive="active">
+            <div class="img">
+                <img class="svg" src="assets/icons/menu/galery.svg" alt="faq" title="Галерея">
+            </div>
+            <span>Галерея</span>
+        </div>
+
+
+        <div class="item arrow" (click)="toggle()">
+            <div class="img">
+                <img class="svg" src="assets/icons/menu/arrows-right.svg" alt="arrows" title="Открыть меню">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box" *ngIf="open" (click)="close()"></div>

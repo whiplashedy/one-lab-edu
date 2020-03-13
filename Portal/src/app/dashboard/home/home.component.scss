@@ -1,0 +1,256 @@
+
+@import url('https://fonts.googleapis.com/css?family=Tomorrow&display=swap');
+
+:host {
+    background: #F6F6F6;
+    min-height: 100vh;
+    max-height: 100%;
+    width: 100%;
+    display: inline-block;
+}
+.scroll::-webkit-scrollbar {
+    width: 5px;
+}
+.scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 20px;
+}
+.scroll::-webkit-scrollbar-thumb {
+    background-color: #6E6E6E;
+    outline: 1px solid slategrey;
+    border-radius: 5px;
+}
+.dot {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+}
+.dot-yellow {
+    background: #F2C94C;
+}
+.dot-red {
+    background: #D10001;
+}
+.dot-blue {
+    background: #3775AE;
+}
+.dot-grey {
+    background: #E7E7E7;
+}
+.dot-green {
+    background: #8DC74F;
+}
+
+#container {
+    width: 1224px;
+    margin: 68px auto;
+    display: grid;
+    grid-template-columns: 288px 598px 288px;
+    grid-gap: 0 25px;
+    .userPanel,
+    .calendar,
+    .tabbar,
+    .lenta {
+        background: #ffffff;
+        border-radius: 5px;
+    }
+}
+
+.left {
+
+    background: #fff;
+
+    .my-calendar{
+        position: relative;
+        top: 20px;
+        float: right;
+        margin: 0 10px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #AFAFAF;
+
+        span{
+            position: relative;
+            top: 2px;
+            font-family: 'Tomorrow', sans-serif;
+            font-size: 20px;
+            margin: 0 5px;
+        }
+
+    }
+
+    .userPanel {
+        padding: 15px 30px;
+        height: 106px;
+        box-sizing: border-box;
+        margin-bottom: 25px;
+        display: grid;
+        grid-template-columns: 76px auto;
+        position: relative;
+        .left img {
+            width: 100%;
+            border-radius: 50%;
+            border: 2px solid #F3F3F3;
+            display: block;
+        }
+        .right {
+            padding: 12px 0 0 9px;
+            .userName, .link {
+                display: flex;
+                align-items: center;
+            }
+            .link:hover {
+                text-decoration: underline;
+            }
+            .userName {
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 20px;
+                height: 29px;
+            }
+            .link {
+                height: 22px;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 15px;
+                color: #AFAFAF;
+                cursor: pointer;
+            }
+            .arrowRight {
+                position: absolute;
+                right: 30px;
+                bottom: 34px;
+            }
+        }
+    }
+}
+
+.center {
+    .tabbar {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        .item {
+            border-radius: 5px 5px 5px 0;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            background: #F0F0F0;
+            span {
+                font-weight: 600;
+                font-size: 16px;
+                color: #939393;
+            }
+        }
+        .item:focus {
+            outline: none;
+        }
+        .active {
+            background: #ffffff;
+            span {
+                color: #4A4A4A;
+            }
+        }
+    }
+    .tabbar-container {
+        height: 728px;
+        background: #ffffff;
+        padding: 20px;
+    }
+}
+
+.right {
+    .lenta {
+        padding: 20px 15px 30px 30px;
+        position: relative;
+        .title, .date {
+            display: flex;
+            align-items: center;
+        }
+        .lentaConfig {
+            position: absolute;
+            right: 30px;
+            top: 22px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        .title {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #939393;
+            width: 203px;
+            height: 22px;
+            margin-bottom: 16px;
+        }
+        .lenta-container {
+            width: 243px;
+            height: 704px;
+            overflow-y: scroll;
+            .date {
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 15px;
+                color: #737373;
+                height: 22px;
+                margin-left: 15px;
+                margin-bottom: 10px;
+            }
+            .lenta-item {
+                .user-info {
+                    display: grid;
+                    grid-template-columns: 16px 30px auto 40px;
+                    .fullName span, .time span {
+                        font-size: 12px;
+                        line-height: 15px;
+                        color: #2C2C2C;
+                    }
+                    .photo img {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        border: 2px solid #F3F3F3;
+                        display: block;
+                    }
+                    .fullName span {
+                        padding-left: 8px;
+                        font-weight: bold;
+                        height: 100%;
+                    }
+                    .time span {
+                        font-weight: 500;
+                        height: 100%;
+                        width: 35px;
+                    }
+                }
+                .info-area {
+                    border-left: 1px solid #DCDCDC;
+                    padding: 10px 0 10px 12px;
+                    margin-left: 4px;
+                    .info-title, .info-desc, .info-comment {
+                        font-weight: 500;
+                        font-size: 12px;
+                        line-height: 15px;
+                    }
+                    .info-title, .info-comment {
+                        color: #2C2C2C;
+                    }
+                    .info-desc {
+                        color: #AFAFAF;
+                    }
+                    .info-comment {
+                        background: #F0F0F0;
+                        display: inline-block;
+                        padding: 6px 13px;
+                        margin-top: 8px;
+                        border-radius: 0 5px 5px 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+

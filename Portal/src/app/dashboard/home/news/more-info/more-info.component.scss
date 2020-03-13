@@ -1,0 +1,95 @@
+.content{
+    width: 570px;
+    height: 550px;
+}
+
+.top{
+    display: flex;
+}
+
+.top h1{
+    margin-left: 20px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.top p{
+    margin-left: 310px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #AFAFAF;
+}
+.photos{
+    display: inline-flex;
+}
+
+.photos img{
+    margin-right: 20px;
+}
+
+.comment{
+    height: 100px;
+    width: 570px;
+    background-color: white;
+    position: fixed;
+    bottom: 34px;
+}
+
+.info{
+    width: 570px;
+}
+
+.info p{
+    margin: 20px 0px 20px 0px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #2C2C2C;
+}
+
+.comment{
+    display: flex;
+}
+
+.ava{
+    margin-top: 20px;
+}
+
+.input_area{
+    position: absolute;
+}
+.input_area input{
+    margin: 24px 0px 0px 70px;
+    height: 40px;
+    width: 440px;
+    background: #F1F1F1;
+    border-radius: 5px;
+    border: none;
+    padding: 0px 90px 0px 10px;
+}
+
+.input_area img{
+    vertical-align: middle;
+    position: relative;
+    right: 60px;
+    margin-right: 5px;
+ 
+}
+
+.send img{
+    margin: 30px 0px 0px 470px ;
+}

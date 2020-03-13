@@ -1,0 +1,48 @@
+.content{
+    width: 708px;
+    height: 306px;
+}
+
+.suggest{
+    margin: 45px 0px 20px 60px;
+}
+
+.center{
+    display: flex;
+}
+input{
+    position: absolute;
+    background: #F1F1F1;
+    border-radius: 5px;
+    border: none;
+    height: 150px;
+    width: 511px;
+    padding: 0px 50px 100px 20px;
+    margin-left: 10px;
+}
+
+.input_area img{
+    vertical-align: middle;
+}
+
+.input_area button{
+    position: relative;
+    left: 450px;
+    top: 8px;
+    margin-right: 10px;
+}
+.ava img{
+    margin-left: 60px;
+}
+
+.send button{
+    position: relative;
+    left: 470px;
+    top: 8px;
+}
+
+button{
+    outline: none;
+    background: none;
+    border: none;
+}

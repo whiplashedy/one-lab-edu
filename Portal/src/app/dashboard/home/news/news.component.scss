@@ -1,0 +1,32 @@
+nav{
+    display: flex;
+}
+nav a{
+    font-family: Montserrat;
+    font-style: normal; 
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #939393;
+}
+
+
+nav a:hover, nav a:focus, nav a:active{
+    color:#D10001;
+}
+
+.company_news{
+    margin-left: 10px;
+    border-left: 1px solid #939393;
+    padding-left: 10px;
+}
+
+.suggest_news{
+    margin-left: 180px;
+}
+
+

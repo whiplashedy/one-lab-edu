@@ -1,0 +1,49 @@
+<div class="block">
+    <p>Органиграмма</p>
+</div>
+<div class="content">
+    <div class="one">
+        <img src="../../../assets/img/one.jpg" alt="one">
+    </div>
+    <div class="director">
+        <img [src]="one.director.photo" alt="director">
+        <div class="info">
+            <div class="fio">{{one.director.fio}}</div>
+            <div class="position">{{one.director.position}}</div>
+        </div>
+    </div>
+    <div class="one-box" *ngIf="items.length && items[0].child.length">
+        <div class="one-block" *ngFor="let block of items[0].child; let i = index">
+            <div class="item ob-item {{block.active ? 'active' : ''}}" (click)="toggle(i)">{{block.name}}</div>
+            <ng-container *ngIf="block.profiles && block.profiles.length">
+                <div class="obi-box" *ngIf="block.active">
+                    <div class="workers-box wb-two" style="left: 143px; top: -95px;">
+                        <div class="wb-item" *ngFor="let worker of block.profiles">
+                            <img [src]="worker.photo ? worker.photo : 'assets/img/default-ava.jpg'" alt="">
+                            <div class="wbi-info">
+                                <span class="wbi-name">{{worker.fullName}}</span>
+                                <span class="wbi-position">{{(worker.specialization && worker.specialization.name) ? worker.specialization.name : 'Спец-я не указано'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="block.child && block.child.length">
+                <div class="obi-box" *ngIf="block.active">
+                    <div class="obi-block" *ngFor="let subBlock of block.child; let j = index">
+                        <div class="item obib-item {{subBlock.active ? 'active' : ''}}" (click)="toggleSubBlock(i, j)">{{subBlock.name}}</div>
+                        <div class="workers-box" *ngIf="subBlock.active && subBlock.profiles.length">
+                            <div class="wb-item" *ngFor="let worker of subBlock.profiles">
+                                <img [src]="worker.photo ? worker.photo : 'assets/img/default-ava.jpg'" alt="">
+                                <div class="wbi-info">
+                                    <span class="wbi-name">{{worker.fullName}}</span>
+                                    <span class="wbi-position">{{(worker.specialization && worker.specialization.name) ? worker.specialization.name : 'Спец-я не указано'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

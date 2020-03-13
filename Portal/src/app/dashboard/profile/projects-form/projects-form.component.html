@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>
+    <span>Выберите проект</span>
+    <img src="../../../assets/icons/close.png" alt="" (click)="onNoClick()">
+</h1>
+<div mat-dialog-content>
+
+    <div class="searchbar">
+        <img src="../../../assets/icons//header/search.svg" alt="search">
+        <input type="text" placeholder="Поиск по названию проекта">
+    </div>
+
+    <!-- <div class="title">Бизнес</div> -->
+    <div class="items">
+        <span *ngFor="let item of existProjects.business" (click)="addItem(item)" [ngClass]="{'active' : isActive(item)}">{{item}}</span>
+    </div>
+
+    <!-- <div class="title">Инфраструктура</div>
+    <div class="items">
+        <span *ngFor="let item of existProjects.infrastructure" (click)="addItem(item)" [ngClass]="{'active' : isActive(item)}">{{item}}</span>
+    </div>
+
+    <div class="title">Розница</div>
+    <div class="items">
+        <span *ngFor="let item of existProjects.roznisa"  (click)="addItem(item)" [ngClass]="{'active' : isActive(item)}">{{item}}</span>
+    </div> -->
+
+    <button class="btn" (click)="submit()">Далее</button>
+
+</div>

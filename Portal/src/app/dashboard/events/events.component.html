@@ -1,0 +1,8 @@
+<div class="events">
+    <div class="events scroll">
+        <div class="line" *ngFor="let event of events">
+            <div class="event_status" [ngClass]="event.event_dot"></div>
+            <div class="event_text">{{event.event_text}}</div>
+        </div>
+    </div>
+</div>

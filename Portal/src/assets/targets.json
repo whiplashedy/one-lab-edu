@@ -1,0 +1,110 @@
+[
+    {
+        "icon": "position.svg",
+        "placehoder": "Планируемая должность через год?",
+        "position_salary": " Senior Designer",
+        "modules_data":[]
+
+    },
+    {
+        "icon": "salary.svg",
+        "placehoder": "Планируемая зарплата через год?",
+        "position_salary": "300.000тг",
+        "modules_data":[]
+    },
+    {
+        "icon": "Polygon.svg",
+        "placehoder": "Пройти курс 'Продвинутый курс UI/UX'",
+        "position_salary": null,
+        "modules_data": [
+            {
+                "modules": "Стандартизация сетки",
+                "image": "inProcess",
+                "status": "На доработку"
+            },
+            {
+                "modules": "Общий UI KIT",
+                "image": "done"
+            },
+            {
+                "modules": "Презентация протатипа",
+                "image": "inProcess",
+                "status": "На доработку"
+
+            },
+            {
+                "modules": "Анимирование протатипа",
+                "image": "done"
+            },
+            {
+                "modules": "Экспорт элементов",
+                "image": "inProcess",
+                "status": "На доработку"
+
+            }
+        ],
+        "hidden": true
+    },
+    {
+        "icon": "Polygon.svg",
+        "placehoder": "Изучить принципы чего та",
+        "position_salary": null,
+        "modules_data": [
+            {
+                "modules": "Стандартизация сетки",
+                "image": "done"
+            },
+            {
+                "modules": "Общий UI KIT",
+                "image": "inProcess",
+                "status": "На доработку"
+
+            },
+            {
+                "modules": "Презентация протатипа",
+                "image": "done"
+            },
+            {
+                "modules": "Анимирование протатипа",
+                "image": "inProcess",
+                "status": "На доработку"
+
+            },
+            {
+                "modules": "Экспорт элементов",
+                "image": "done"
+            }
+        ],
+        "hidden": true
+    },
+    {
+        "icon": "Polygon.svg",
+        "placehoder": "Изучить принципы еще чего та",
+        "position_salary": null,
+        "modules_data": [
+            {
+                "modules": "Стандартизация сетки",
+                "image": "done"
+            },
+            {
+                "modules": "Общий UI KIT",
+                "image": "done"
+            },
+            {
+                "modules": "Презентация протатипа",
+                "image": "inProcess"
+            },
+            {
+                "modules": "Анимирование протатипа",
+                "image": "inProcess",
+                "status": "На доработку"
+            },
+            {
+                "modules": "Экспорт элементов",
+                "image": "inProcess",
+                "status": "На доработку"
+            }
+        ],
+        "hidden": true
+    }
+]

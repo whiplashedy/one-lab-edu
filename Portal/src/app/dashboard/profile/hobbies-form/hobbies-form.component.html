@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>
+    <span>Ваши интересы и хобби</span>
+    <img src="assets/icons/close.png" alt="" (click)="onNoClick()">
+</h1>
+<div mat-dialog-content>
+
+    <div class="searchbar">
+        <img src="assets/icons//header/search.svg" alt="search">
+        <input type="text" placeholder="Например книга, футбол, музыка">
+    </div>
+
+    <div class="title">Выбранные Вами</div>
+    <div class="items">
+        <span class="active" *ngFor="let item of user.hobby; let idx = index" (click)="remove(idx)">{{item}}</span>
+    </div>
+
+    <div class="title">Из списка</div>
+    <div class="items">
+        <span *ngFor="let item of items" (click)="addToItem(item)">{{item}}</span>
+    </div>
+
+    <button class="btn" (click)="submit()">Сохранить</button>
+
+</div>

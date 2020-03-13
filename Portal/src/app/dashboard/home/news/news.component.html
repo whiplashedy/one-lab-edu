@@ -1,0 +1,12 @@
+<nav>
+    <div class="all_news">
+        <a routerLink="/dashboard/home/news/news_list" routerLinkActive="active">Все новости</a>
+    </div>
+    <div class="company_news">
+        <a routerLink="/dashboard/home/news/news_company" routerLinkActive="active">Новости компании</a>
+    </div>
+    <div class="suggest_news">
+        <a (click)="openDialog()">Предложить новость +</a>
+    </div>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,47 @@
+<div class="grid">
+    <div class="left">
+        <div class="title">Вход</div>
+        <form class="form-auth" [formGroup]="profileForm" (ngSubmit)="auth(profileForm.value)">
+            <div class="field">
+                <input type="email" formControlName="email" placeholder="Введите адрес эл. почты">
+            </div>
+            <div class="field">
+                <input type="password" formControlName="password" placeholder="Введите пароль">
+                <img appPassword class="view" src="assets/icons/view.svg">
+            </div>
+            <div class="other-btn">
+                <div class="remember">
+                    <label class="checkbox-container">
+                        <span class="text">Запомнить</span>
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="forgot">
+                    <a href="#" routerLink="/auth/forget">Забыли пароль?</a>
+                </div>
+            </div>
+            <button [disabled]="profileForm.invalid" type="submit" class="button button-red" *ngIf="!authService.isLoggedIn">Войти</button>
+        </form>
+    </div>
+    <div class="right">
+        <div *ngIf="!haveError && !(profileForm.touched && profileForm.invalid)">
+            <div class="title">Портал для <br>сотрудников ONE</div>
+            <div class="subtitle">С удобством, приходит продуктивность.</div>
+        </div>
+        <div *ngIf="haveError || (profileForm.touched && profileForm.invalid)">
+            <div class="title">Ошибка</div>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="redSubTitle">
+                <p *ngIf="email.errors.required">E-mail обязателен.</p>
+                <p *ngIf="email.errors.minlength">E-mail должен содержать не менее 5 символов.</p>
+                <p *ngIf="email.errors.email">Введите правильный E-mail</p>
+            </div>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="redSubTitle">
+                <p *ngIf="password.errors.required">Пароль обязателен.</p>
+                <p *ngIf="password.errors.minlength">Пароль должен содержать не менее 5 символов.</p>
+            </div>
+            <div class="redSubTitle">{{errorMessage.title}}</div>
+            <div class="subtitle">{{errorMessage.text}}</div>
+        </div>
+    </div>
+</div>

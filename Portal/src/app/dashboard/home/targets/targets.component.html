@@ -1,0 +1,64 @@
+<div class="target-year">
+    <img src="../../../../assets/icons/Vector.svg" alt="" class="target-year-logo">
+    <p class="target-year-title">Первое полугодие 2019</p>
+    <div class="target-year-edit" *ngIf="!hideElement">
+        <img src="../../../../assets/icons/edit-logo.svg" alt="" class="target-edit-logo">
+        <button class="target-edit-text" (click)="hiden()">Редактировать</button>
+    </div>
+</div>
+
+<div class="change-buttons" *ngIf="hideElement">
+        <button class="cancel" (click)="hiden()">Отмена</button>
+        <button class="save" (click)="openDialog()">Сохранить</button>
+    </div>
+
+
+<div class="target scrollbar">
+    <div class="plan" *ngFor="let target of targets; let i = index">
+        <div class="position, position_2">
+            <div class="img-placeholder-item">
+                <div class="image-p">
+                    <img src="../../../../assets/icons/{{target.icon}}" alt="" class="position-logo">
+                </div>
+                <div class="placeholder-item">
+                    <p class="position-text-placeholder, position-text-placeholder2">{{target.placehoder}}</p>
+                </div>
+            </div>
+            <div class="position-item">
+                <p class="position-text-salary, position-text-salary2">{{ target.position_salary}}</p>
+                <button class="button-item, button-item2" *ngIf="target.modules_data?.length != 0" (click)="target.hidden = !target.hidden">
+                    <img src="../../../../assets/icons/vector-btn2.svg" alt="">
+                    <img src="../../../../assets/icons/vector-btn2.svg" alt="">
+                </button>
+                <div class="percentage" *ngIf="target?.modules_data?.length != 0">
+                    <p class="percentage-text, percentage-text2">{{(0/target.modules_data.length)*100}}%</p>
+                </div>
+            </div>
+        </div>
+        <div class="" *ngIf="target?.modules?.length != 0">
+            <div class="targets" *ngIf="!target.hidden">
+                <div class="target-list" *ngFor=" let step of target.modules_data;let i = index ">
+                      <div class="change-status">
+                          <img src="../../../../assets/icons/{{step.image}}.svg" alt="">
+                          <p class="text-status">Module {{i+1}}:  {{step.modules}}</p>
+                      </div>
+                    <div class="">
+                         <!--<p class="comment" *ngIf="step.image === 'inProcess'">{{step.status }}</p>-->
+                         <button class="button-target" *ngIf="step.image === 'inProcess'" (click)="openDialog()">Завершить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="add-target">
+        <button class="add-target-button">
+            <img src="../../../../assets/icons/add-blue.svg" alt="" class="target-add-icon">
+            Добавить цель
+        </button>
+    </div>
+    <div class="save-plan">
+        <button class="save-button" (click)="openDialog()">Сохранить</button>
+    </div>
+</div>
+
+

@@ -1,0 +1,66 @@
+.myForm{
+    padding: 20px 20px 20px 70px;
+    width: 70%;
+    height: 360px;
+    left: 180px;
+    top: 257px;
+    color:white;
+    background: rgba(0, 0, 0, 0.5);
+    
+}
+
+.title{
+    color: white;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 44px;
+
+}
+
+input{
+    letter-spacing: 0.3px;
+    font-size: 16px;
+    width: 50%;
+    padding: 17px 37px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    border: 1px solid #BDBDBD;
+    background: none;
+    color: white;
+  }
+
+input[type="email"]::-webkit-input-placeholder {
+    color: white;
+   } 
+input[type="email"]::-moz-placeholder {
+    color: white;
+   }
+input[type="password"]::-webkit-input-placeholder {
+    color: white;
+   } 
+input[type="password"]::-moz-placeholder {
+    color: white;
+   }
+.alert{
+    color: red;
+    margin-top: 10px;
+  }
+
+.btn-info{
+    margin-top: 20px;
+    margin-right: 10px;
+    width: 150px;
+    height: 46px;
+    border: none;
+    color: white;
+    background: #D10001;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.btn-warning{
+    margin-left: 20px ;
+    font-weight: 600;
+    font-size: 16px;
+}

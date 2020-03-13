@@ -1,0 +1,85 @@
+
+<div class="dialog_ex">
+    <div class="a">
+        <div class="header_ex">
+            <span class="title_ex">Подробности проекта</span>
+            <button class="exit_button_ex">
+                <img alt="" src="../../../../assets/icons/exit.svg" (click)="closeD()">
+            </button>
+        </div>
+        <div class="content_ex">
+            <div class="left">
+                <div class="projects">
+                    <p>Проект</p>
+                </div>
+                <div class="start_date">
+                    <p>Начала</p>
+                </div>
+                <div class="end_date">
+                    <p>Окончание</p>
+                </div>
+                <div class="description">
+                    <p>Описание</p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="projects">
+                    <span>ForteKassa</span>
+                </div>
+                <div class="start_date">
+                    <label>
+                        <select class="chooseMonth">
+                            <option value="January" class="monthName">Январь</option>
+                            <option value="Febuary" class="monthName">Февраль</option>
+                            <option value="March" class="monthName">Март</option>
+                            <option value="April" class="monthName">Апрель</option>
+                            <option value="May" class="monthName">Май</option>
+                            <option value="June" class="monthName">Июнь</option>
+                            <option value="July" class="monthName">Июль</option>
+                            <option value="August" class="monthName">Август</option>
+                            <option value="September" class="monthName">Сентябрь</option>
+                            <option value="October" class="monthName">Октябрь</option>
+                            <option value="November" class="monthName">Ноябрь</option>
+                            <option value="December" class="monthName">Декабрь</option>
+                        </select>
+                    </label>
+                    <label>
+                        <input class="chooseYear" placeholder="2018" type="text" [placeholder]="2018">
+                    </label>
+                    <input type="checkbox" id="today" class="checkbox-now">
+                    <input type="checkbox" id="today" class="checkbox">
+                    <label for="today" class="now">По настоящее время</label>
+                </div>
+                <div class="end_date">
+                    <label>
+                        <select class="chooseMonth">
+                            <option value="January" class="monthName">Январь</option>
+                            <option value="Febuary" class="monthName">Февраль</option>
+                            <option value="March" class="monthName">Март</option>
+                            <option value="April" class="monthName">Апрель</option>
+                            <option value="May" class="monthName">Май</option>
+                            <option value="June" class="monthName">Июнь</option>
+                            <option value="July" class="monthName">Июль</option>
+                            <option value="August" class="monthName">Август</option>
+                            <option value="September" class="monthName">Сентябрь</option>
+                            <option value="October" class="monthName">Октябрь</option>
+                            <option value="November" class="monthName">Ноябрь</option>
+                            <option value="December" class="monthName">Декабрь</option>
+                        </select>
+                    </label>
+                        <label>
+                            <input class="chooseYear" placeholder="2019" [placeholder]="2019">
+                        </label>
+                </div>
+                <div class="description">
+                    <label>
+                        <textarea name="" id="" cols="64" rows="7" style=" resize: none"></textarea>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="footer_ex">
+            <div class="button_ex">Сохранить</div>
+        </div>
+    </div>
+</div>

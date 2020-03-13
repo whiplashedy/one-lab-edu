@@ -1,0 +1,238 @@
+<div class="profile" *ngIf="user">
+    <span class="component-title">Профиль</span>
+    <div class="info-block main-1">
+        <div class="info-contacts">
+            <p class="info-prop">Контакты</p>
+            <p class="info-value">{{user.phone ? user.phone : 'Не указано'}}</p>
+        </div>
+        <!--<button class="title-btn edit-profile-btn" (click)="openEditDialog(user)">
+            <img src="assets/img/icons/pencil.png">
+        </button>-->
+        <div class="ava-block">
+            <img class="ava" [src]="user.photo ? user.photo : 'assets/img/default-ava.jpg'">
+            <img class="ava-btn" src="assets/img/icons/photo.png">
+        </div>
+        <div class="main-txt">
+            <p class="name">{{user.fullName}}</p>
+            <p class="position">
+                {{(user.specialization && user.specialization.name) ? user.specialization.name : 'Специализация не указана'}}
+                <span class="txt-gray"> &bull; {{(user.position && user.position.name) ? user.position.name : 'Позиция не указана'}}</span>
+            </p>
+            <!--<p class="position-2">
+                <span class="bg-black">R&D</span>
+            </p>-->
+        </div>
+        <div class="info-containers grid1">
+            <div class="info-container gender">
+                <img [src]="user.gender === 'male' ? 'assets/icons/male.svg' : 'assets/icons/female.svg'" alt="">
+            </div>
+            <div class="info-container">
+                <p class="info-prop">Статус</p>
+                <p class="info-value">{{user.status ? user.status : 'Не указан'}}</p>
+            </div>
+            <div class="info-container">
+                <p class="info-prop">Тимлид</p>
+                <p class="info-value">{{user.teamlead ? user.teamlead : 'Не указан'}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-block main-2 info-containers grid2">
+        <div class="info-container">
+            <p class="info-prop">Дата рождения</p>
+            <p class="info-value">{{user?.birthday | date: 'dd.MM.yyyy'}}</p>
+        </div>
+        <div class="info-container">
+            <p class="info-prop">Почта</p>
+            <p class="info-value">{{user.email ? user.email : 'Не указан'}}</p>
+        </div>
+    </div>
+
+
+    <div class="projects">
+        <div class="info-block competent">
+            <div class="block-title">
+                <p class="txt-gray"> Компетенции </p>
+                <!--<button class="title-btn">
+                    <img src="assets/img/icons/pencil.png">
+                </button>-->
+            </div>
+            <div class="block-content">
+                <p class="item" *ngFor="let skill of user.skills">{{skill.skillName}}</p>
+                <p *ngIf="(!user.skills || !user.skills.length)">Нет данных</p>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="current-projects">
+            <div class="info-block">
+                <div class="block-title">
+                    <p class="txt-gray"> Текущие проекты &bull; {{(user.projects && user.projects.length) ? user.projects.length : 0}} </p>
+                    <button class="title-btn_2" (click)="openProjectDialog()"><img src="../../../assets/img/icons/add.png" alt=""></button>
+                </div>
+                <div class="block-content">
+                    <p class="bg-blue" *ngFor="let project of user.projects">{{project.name}}</p>
+                    <p *ngIf="(!user.projects || !user.projects.length)">Нет данных</p>
+                </div>
+            </div>
+            <div class="all-projects" *ngIf="allProjectsCollapse">
+                <div class="block-title">
+                    <p class="txt-gray"> Предыдущие проекты &bull; 3 </p>
+                    <button class="title-btn_2" (click)="openProjectDialog()">
+                        <img src="../../../assets/img/icons/add.png">
+                    </button>
+                </div>
+                <div class="ap-item" *ngFor="let i of user.projects">
+                    <div class="ap-title">
+                        <span class="bg-blue">{{i.name}}</span>
+                    </div>
+                    <div class="ap-content">
+                        <span>Апрель 2019 - настоящее время (4 месяца)</span>
+                        <span>Структура сайта</span>
+                    </div>
+                    <div class="title-actions_2">
+                        <button class="title-btn" (click)="openEditProjectDialog()"><img src="../../../assets/img/icons/pencil.png" alt=""></button>
+                    </div>
+                </div>
+            </div>
+            <div class="all-projects-btn" (click)="toggleAllProject()">
+                <ng-container *ngIf="!allProjectsCollapse">
+                    <span>Все проекты</span>
+                    <img src="../../../assets/icons/arrrow-down.svg" alt="arrow">
+                </ng-container>
+                <ng-container *ngIf="allProjectsCollapse">
+                    <span>Скрыть</span>
+                    <img src="../../../assets/icons/arrrow-up.svg" alt="arrow">
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-block interests">
+        <div class="block-title">
+            <p class="txt-gray"> Интересы/Хобби </p>
+            <div class="title-actions">
+                <button class="title-btn_2" (click)="openHobbieDialog()"><img src="../../../assets/img/icons/pencil.png"></button>
+                <!--<button class="title-btn"><img src="assets/img/icons/add.png"></button>-->
+            </div>
+        </div>
+        <div class="block-content">
+                <p *ngFor="let hobbie of user.hobby">{{hobbie}}</p>
+            <p *ngIf="(!user.hobby || !user.hobby.length)">Нет данных</p>
+            </div>
+    </div>
+
+    <div class="info-block posts">
+        <div class="block-title">
+            <p class="txt-gray"> О себе </p>
+        </div>
+        <div class="text">
+            {{user.aboutMyself}}
+        </div>
+        <p *ngIf="!user.aboutMyself">Нет данных</p>
+    </div>
+    <button class="hide-show" (click)="hiden()">{{hidetext}}</button>
+    <div class="info-block career">
+        <div class="career-content">
+            <!--<div class="block-title">-->
+            <!--    <p class="txt-gray">Карьера</p>-->
+            <!--    <button class="hide-show" (click)="hiden()">{{hidetext}}</button>-->
+
+            <!--</div>-->
+        <mat-tab-group animationDuration="0ms">
+            <mat-tab label="Карьера">
+            <div class="position-list" *ngIf="!hideElement">
+                <div class="postion-item">
+                    <span class="icon">
+                        <img src="assets/icons/levels/teamlead.svg" alt="">
+                    </span>
+                    Teamlead
+                </div>
+                <div class="postion-item">
+                    <span class="icon">
+                        <img src="assets/icons/levels/senior3.svg" alt="">
+                    </span>
+                    Senior 3
+                </div>
+                <div class="postion-item">
+                    <span class="icon">
+                        <img src="assets/icons/levels/senior2.svg" alt="">
+                    </span>
+                    Senior 2
+                </div>
+                <div class="postion-item">
+                    <span class="icon">
+                        <img src="assets/icons/levels/senior1.svg" alt="">
+                    </span>
+                    Senior 1
+                </div>
+                <div class="postion-item">
+                    <span class="icon">
+                        <img src="assets/icons/levels/middle3.svg" alt="">
+                    </span>
+                    Middle 3
+                </div>
+                <div class="postion-item">
+                    <span class="icon">
+                        <img src="assets/icons/levels/middle2.svg" alt="">
+                    </span>
+                    Middle 2
+                </div>
+                <div class="postion-item">
+                    <span class="icon">
+                        <img src="assets/icons/levels/middle1.svg" alt="">
+                    </span>
+                    Middle 1
+                </div>
+                <div class="postion-item">
+                    <span class="icon">
+                        <img src="assets/icons/levels/junior3.svg" alt="">
+                    </span>
+                    Junior 3
+                </div>
+                <div class="postion-item position-item-active" >
+                    <div class="progress per-75"></div>
+                    <div class="info">
+                        <span class="icon">
+                            <img src="assets/icons/levels/junior2.svg" alt="">
+                        </span>
+                        Junior 2
+                        <span class="upped">Поднято 01.02.2018</span>
+                    </div>
+<!--                    <button class="show-detail">-->
+
+<!--                    </button>-->
+                    <span class="percent-number">75%</span>
+                </div>
+                <div class="pia-panel">
+                    <span class="piap-title">До следующего этапа:</span>
+                    <span class="percent-number">75%</span>
+                </div>
+                <div class="pia-panel">
+                    <span class="piap-title">До следющего этапа:</span>
+                    <span>Осталось 3 цели в КЦ <br> 01.02.2018</span>
+                </div>
+                <div class="postion-item position-item-success">
+                    <span class="icon">
+                        <img src="assets/icons/levels/junior1.svg">
+                    </span>
+                    Junior 1
+                    <span class="data-item">01.07.2017-01.02.2018</span>
+                </div>
+                <div class="postion-item position-item-success">
+                    <span class="icon">
+                        <img src="assets/icons/levels/stazher.svg">
+                    </span>
+                    Стажер
+                    <span class="data-item">01.07.2017-01.02.2018</span>
+                </div>
+            </div>
+            </mat-tab>
+            <mat-tab label="Карта целей">
+                <div *ngIf="!hideElement">
+                    <app-targets></app-targets>
+                </div>
+            </mat-tab></mat-tab-group>
+    </div>
+</div>
