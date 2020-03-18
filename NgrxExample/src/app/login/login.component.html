@@ -1,0 +1,6 @@
+<form class="login-card" (ngSubmit)="submit($event)">
+  <input name="login" placeholder="Enter Login" [(ngModel)]="login">
+  <input name="password" type="password" placeholder="Enter password" [(ngModel)]="password">
+  <button type="submit">Log in</button>
+  <pre>{{(loading$ | async) | json }}</pre>
+</form>
