@@ -8,8 +8,13 @@ import { AppComponent } from './app.component';
 import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 import { LoginComponent } from './login/login.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {loginReducer} from './store/login.reducer';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -21,8 +26,14 @@ import {loginReducer} from './store/login.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ count: counterReducer, login: loginReducer }),
+    StoreModule.forRoot({count: counterReducer, login: loginReducer}),
     FormsModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
