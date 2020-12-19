@@ -1,2 +1,8 @@
 /Portal/node_modules/
 /Portal/node_modules/
+
+# intellij configs
+.idea/
+
+# temp files
+**/~$*
