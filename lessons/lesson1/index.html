@@ -1,0 +1,61 @@
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        
+        <h1>hello</h1>
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+          
+            </canvas>
+            <p id="demo">
+               ///
+            </p>
+            <form id="result"> 
+                <p>Name<input type="text" id="name" name="name"> </p>
+                <p>Surname<input type="text" id="surname"> </p>
+                <p>Date of birth <input type="datetime" id="birthday">     </p>
+                 Gender <label></label><input type="radio" class="radio" id="f" name="gender" value="g">Female</label>
+                    <label>
+                    <input type="radio" class="radio" id="m" name="gender" value="g">Male
+                    </label>  
+                
+                <p>Telephone number: <input type="text" id="telephone"></p>
+                <p>Education: <input type="text" id="edu"></p>
+                <p>Address: <input type="text" id="address"></p>
+                <input type="button" id="submit" />
+                <script>
+    document.getElementById("submit").addEventListener("click", submit);                 
+    function submit(){
+    var name=document.getElementById("name").value;
+    var surname=document.getElementById("surname").value;
+    var obj={}
+    obj["name"]=name;
+    obj["surname"]=surname;
+    localStorage.setItem("namesurname", JSON.stringify(obj));
+    var birthday=document.getElementById("birthday").value;
+    localStorage.setItem("birthday", birthday);
+    if (document.getElementById("f").checked === true){
+        localStorage.setItem("gender", "true");
+        console.log("girl");
+    }
+    else if (document.getElementById("m").checked === true){
+        localStorage.setItem("gender", "false");
+    }
+    var tel=document.getElementById("telephone").value;
+    localStorage.setItem("telephone", tel);
+    var edu=document.getElementById("edu").value;
+    localStorage.setItem("education", edu);
+    var addr=document.getElementById("address").value;
+    localStorage.setItem("address", addr);
+}
+    
+                </script>
+            </form>
+    <div>
+
+    </div>
+            <script src="index.js"></script>
+    </body>
+</html>

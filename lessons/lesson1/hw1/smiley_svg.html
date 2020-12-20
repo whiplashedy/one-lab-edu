@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <style>
+            .face{
+                fill: gold;
+            }
+            .eye{
+                fill: black;
+            }
+            .mouth{
+                stroke: #000;
+                stroke-width: 1px;
+                stroke-linecap: round;
+            }
+            .left-eyebrow{
+                transform:rotate(80deg);
+                transform-origin: 95px 70px;
+                transition: all .5s linear;
+            }
+            .right-eyebrow{
+                transform:rotate(100deg);
+                transform-origin: 165px 85px;
+                transition: all .5s linear;
+            }
+        </style>
+    </head>
+    <body>
+        <svg class="smiley" width="256" height="256" viewBox="0 0 256 256">
+            <circle class="face" cx="128" cy="128" r="120"/>
+            <circle class="eye" cx="90" cy="100" r="15"/>
+            <path class="mouth" d="M90,165 Q128,220 166,165"/>
+            <circle class="eye" cx="170" cy="100" r="15"/>
+            <rect class="left-eyebrow" x="97" y="66" width="6" height="32" rx="4" ry="4"/>
+            
+            <rect class="right-eyebrow" x="153" y="66" width="6" height="32" rx="4" ry="4"/>
+        </svg>
+    </body>
+</html>

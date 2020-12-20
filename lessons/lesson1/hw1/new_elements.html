@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <style>
+            aside {
+            display: block;
+}
+            dialog{
+                width:200px;
+            }
+            section{
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body><main>
+        <div id="semantics">
+            
+            <input type="search" name="googlesearch">
+            <input type="button" value="Find">
+            <article><header>
+                <h1>Theme</h1>
+                </header>
+                <p>Content info</p>
+                <figure>
+                    <img src="robot.jpg" alt="Trulli" style="width:100px; height: 150px;">
+                    <figcaption>Fig.1 - Robot Image.</figcaption>
+                  </figure>
+                <footer>
+                    <p>Posted on <time datetime="2020-12-20 20:00">December 12 at 8pm, 2020</time></p>
+                    <details>
+                        <summary>Copyright (Visible info of details)</summary>
+                        <p> - by Refsnes Data. All Rights Reserved.</p>
+                        <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+                      </details>
+                      
+                      <p><b>Note:</b> The details tag is not supported in Internet Explorer.</p>
+                </footer>
+            </article>
+            <aside>
+                <h3>Epcot Center</h3>
+                <p>The Epcot Center is a theme park in <mark>Disney World</mark>, Florida.</p>
+                <p>Rate: 
+                    <meter value="9" min="0" max="10">9 out of 10</meter> 9/10 </p> 
+                <p>Written by  <bdi>إيان</bdi></p>
+              </aside>
+            <dialog open>
+                <h5>The dialog part is open
+                </h5>
+                Loading
+                <progress value="60" max="100">
+                </progress>
+            </dialog>
+            <section>
+                <h1>WWF's Panda symbol</h1>
+                <p>The Panda has become the symbol of WWF. The well-known panda logo of WWF originated from a panda named Chi Chi that was transferred from the Bei<wbr>jing Zoo to the London Zoo in the same year of the establishment of WWF.</p>
+              </section>
+            <p><b>Useful links</b>
+            </p>
+            <nav>
+                <a href="https://www.google.com/search?q=robot+images&sxsrf=ALeKk036rlVHZLnet6Za8GPr__Z00aKcAg:1608398115989&tbm=isch&source=iu&ictx=1&fir=BLYs0Z7vdP_DdM%252CyiThpkwupc_DYM%252C_&vet=1&usg=AI4_-kRNtbx2gmnIbTQMkBI76PGcTgB1RQ&sa=X&ved=2ahUKEwiXhPHyxdrtAhVSposKHclJDuQQ9QF6BAgMEAE&biw=1536&bih=666#imgrc=BLYs0Z7vdP_DdM">Robot image</a> |
+                <a href="http://w3schools-fa.ir/html/html5_new_elements.html">W3school HTML5 New elements</a> |
+              </nav>
+            </main>
+        </div>
+        <div id="formelements">
+            <h1>Fill the form</h1>
+            <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+                <input type="range" id="a" min=0 max=200>200
+                +<input type="number" id="b">
+                =<output name="x" for="a b"></output>
+                </form>
+            <form  autocomplete="on" if="form1" action="action_page.php" method="GET" >Choose your browser
+                <input list="browsers" name="browser">
+                <datalist id="browsers">
+                <option value="Internet Explorer">
+                <option value="Firefox">
+                <option value="Chrome">
+                <option value="Opera">
+                <option value="Safari">
+                </datalist><br>
+                Select your favorite color:
+                <input type="color" name="favcolor"><br>
+                Birthday:
+                <input type="date" name="bday"><br>
+                What time it is?
+                <input type="datetime-local" name="daytime"><br>
+                E-mail:
+                <input type="email" name="email" value="zsatui9@gmail.com" multiple><br>
+                Favorite month in this year:
+                <input type="month" name="bdaymonth"><br>
+                Your telephone:
+                <input type="tel" name="usrtel" autofocus required ><br>
+                Select a time:
+                <input type="time" name="usr_time" step="3"><br>
+                Add your homepage:
+                <input type="url" name="homepage"><br>
+                Add ypur contry code: 
+                <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" placeholder="AAA"><br>
+                <input type="image" src="robot.jpg" alt="Submit image" width="48" height="48"><br>
+                <input type="submit" value="Submit">
+                <input type="submit" formnovalidate value="Send to me" formaction="action_page2.php" formenctype="multipart/form-data" formmethod="post" formtarget="_blank">
+            </form>
+            Select a week:
+                <input type="week" name="week_year" form="form1"><br>
+        </div>
+        <div id="media">
+            <p>Horse sound</p>
+        <audio controls>
+        <source src="horse.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio><br>
+        <embed src="helloworld.swf"><br>
+        <video width="320" height="240" controls>
+            <source src="movie.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+            <track src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+            <track src="subtitles_no.vtt" kind="subtitles" srclang="no" label="Norwegian">
+        </video>
+        </div>
+    </body>
+</html>

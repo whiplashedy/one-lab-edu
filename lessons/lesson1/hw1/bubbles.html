@@ -1,0 +1,323 @@
+<html>
+    <head>
+        <style>
+            section{
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-rows: repeat(auto-fill, 200px);
+            grid-template-columns: repeat(auto-fill, 200px);
+            grid-gap: 1px;
+            min-width: 480px;
+            }
+            div{
+                display: block;
+                padding: 0;
+                margin: 0;
+                align-self: center;
+                justify-self: center;
+            }
+            @keyframes one {
+            from {background-color: palegreen;}
+            to {background-color: white;}
+  }
+  @keyframes two {
+            from {background-color:rebeccapurple;}
+            to {background-color:white;}
+  }
+  @keyframes three{
+            from {background-color: white;}
+            to {background-color:plum;}
+  }
+
+            .one{
+                width: 120px;
+                height: 120px;
+                background-color: palegreen;
+                border-radius: 50%;
+                grid-row: auto / span 2;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: one 8s infinite;
+                animation-direction: alternate;
+            }
+            .two{
+                width: 110px;
+                height: 110px;
+                background-color: rebeccapurple;
+                border-radius: 50%;
+                grid-row: auto / span 2;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: two 5s infinite;
+                animation-direction: alternate;
+            }
+            .three{
+                width: 100px;
+                height: 100px;
+                background-color: white;
+                border-radius: 50%;
+                grid-row: auto / span 1;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: three 10s infinite;
+                animation-direction: alternate;
+            }
+            @keyframes four{
+            from {background-color: turquoise;}
+            to {background-color:white;}
+  }
+            .four{
+                width: 80px;
+                height: 80px;
+                background-color: turquoise;
+                border-radius: 50%;
+                grid-row: auto / span 2;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: four 2s infinite;
+                animation-direction: alternate;
+            }
+            @keyframes five{
+            from {background-color: white;}
+            to {background-color:burlywood;}
+  }
+            .five{
+                width: 120px;
+                height: 120px;
+                background-color: white;
+                border-radius: 50%;
+                grid-row: auto / span 1;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: five 4s infinite;
+                animation-direction: alternate;
+            }
+            @keyframes six{
+            from {background-color:rosybrown;}
+            to {background-color:white;}
+  }
+            .six{
+                width: 100px;
+                height: 100px;
+                background-color:rosybrown ;
+                border-radius: 50%;
+                grid-row: auto / span 1;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: six 15s infinite;
+                animation-direction: alternate;
+            }
+            .seven{
+                width: 80px;
+                height: 80px;
+                background-color: palegreen;
+                border-radius: 50%;
+                grid-row: auto / span 2;
+                grid-column: auto / span 2;
+                margin: 2px 2;
+                animation: one 6s infinite;
+                animation-direction: alternate-reverse;
+            }
+            .eight{
+                width: 110px;
+                height: 110px;
+                background-color: rebeccapurple;
+                border-radius: 50%;
+                grid-row: auto / span 2;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: two 8s infinite;
+                animation-direction: alternate;
+            }
+            @keyframes nine{
+            from {background-color:black;}
+            to {background-color:white;}
+  }
+            .nine{
+                width: 130px;
+                height: 130px;
+                background-color: black;
+                border-radius: 50%;
+                grid-row: auto / span 2;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: nine 5s infinite;
+                animation-direction: alternate-reverse;
+            }
+            @keyframes ten{
+            from {background-color:gold;}
+            to {background-color:white;}
+  } 
+            .ten{
+                width: 70px;
+                height: 70px;
+                background-color: gold;
+                border-radius: 50%;
+                grid-row: auto / span 1;
+                grid-column: auto / span 2;
+                margin: 2px 2;
+                animation: ten 10s infinite;
+                animation-direction: alternate-reverse;
+            }
+            .black1{
+                margin: 0;
+                width: 130px;
+                height: 130px;
+                background-color: black;
+                border-radius: 50%;
+                grid-row: auto / span 2;
+                grid-column: auto / span 1;
+                animation: nine 4s infinite;
+                animation-direction: alternate-reverse;
+
+            }
+            .black2{
+                margin: 0;
+                width: 130px;
+                height: 130px;
+                background-color: black;
+                border-radius: 50%;
+                grid-row: auto / span 2;
+                grid-column: auto / span 1;
+                animation: nine 12s infinite;
+                animation-direction: alternate-reverse;
+
+            }
+            .black3{
+                margin: 0;
+                width: 130px;
+                height: 130px;
+                background-color: black;
+                border-radius: 50%;
+                grid-row: auto / span 2;
+                grid-column: auto / span 1;
+                animation: nine 19s infinite;
+                animation-direction: alternate-reverse;
+
+            }
+            .tur1{
+                width: 100px;
+                height: 100px;
+                background-color:turquoise;
+                border-radius: 50%;
+                grid-row: auto / span 1;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: four 20s infinite;
+                animation-direction: alternate;
+            }
+            .tur2{
+                width: 100px;
+                height: 100px;
+                background-color:turquoise;
+                border-radius: 50%;
+                grid-row: auto / span 1;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: four 9s infinite;
+                animation-direction: alternate;
+            }
+            .tur3{
+                width: 100px;
+                height: 100px;
+                background-color:turquoise;
+                border-radius: 50%;
+                grid-row: auto / span 1;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: four 3s infinite;
+                animation-direction: alternate;
+            }
+            @keyframes yellow{
+            from {background-color:yellowgreen;}
+            to {background-color:white;}
+  }
+            .yellow1{
+                width: 90px;
+                height: 90px;
+                background-color:yellowgreen;
+                border-radius: 50%;
+                grid-row: auto / span 2;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: yellow 14s infinite;
+                animation-direction: alternate-reverse;
+            }
+            .yellow2{
+                width: 90px;
+                height: 90px;
+                background-color:yellowgreen;
+                border-radius: 50%;
+                grid-row: auto / span 2;
+                grid-column: auto / span 1;
+                margin: 2px 2;
+                animation: yellow 7s infinite;
+                animation-direction: alternate-reverse;
+            }
+            .red1{
+                width: 80px;
+                height: 80px;
+                background-color:rosybrown;
+                border-radius: 50%;
+                grid-row: auto / span 1;
+                grid-column: auto / span 2;
+                margin: 2px 2; 
+                animation: six 8s infinite;
+                animation-direction: alternate; 
+            }
+            .red2{
+                width: 80px;
+                height: 80px;
+                background-color:rosybrown;
+                border-radius: 50%;
+                grid-row: auto / span 1;
+                grid-column: auto / span 2;
+                margin: 2px 2; 
+                animation: six 12s infinite;
+                animation-direction: alternate; 
+            }
+            .red3{
+                width: 80px;
+                height: 80px;
+                background-color:rosybrown;
+                border-radius: 50%;
+                grid-row: auto / span 1;
+                grid-column: auto / span 2;
+                margin: 2px 2; 
+                animation: six 3s infinite;
+                animation-direction: alternate-reverse; 
+            }
+        </style>
+    </head>
+    <body><section>
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="four"></div>
+        <div class="five"></div>
+        <div class="six"></div>
+        <div class="seven"></div>
+        <div class="eight"></div>
+        <div class="nine"></div>
+        <div class="ten"></div>
+
+        <div class="black1"></div>
+        <div class="tur1"></div>
+        <div class="red1"></div>
+        <div class="tur2"></div>
+        <div class="yellow1"></div>
+        <div class="green2"></div>
+        <div class="yellow2"></div>
+        <div class="green3"></div>
+        <div class="tur3"></div>
+        <div class="black2"></div>
+        <div class="green4"></div>
+        <div class="red2"> </div>
+        <div class="green5"></div>
+        
+        <div class="black3"></div>
+        <div class="red3"></div>
+        </section>
+    </body>
+</html>

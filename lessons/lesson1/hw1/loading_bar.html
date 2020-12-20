@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <style>
+            .loader { 
+            width: 150px; 
+            margin: 150px auto 70px; 
+            position: relative; 
+        } 
+  
+        .loader .loading_1 { 
+            position: relative; 
+            width: 100%; 
+            height: 10px; 
+            border: 1px solid rgb(20, 181, 187); 
+            border-radius: 10px; 
+        } 
+        .loader .loading_1:before { 
+            content: ""; 
+            display: block; 
+            position: absolute; 
+            width: 0; 
+            height: 100%; 
+            background-color: yellowgreen; 
+            box-shadow: 10px 0px 15px 0px yellowgreen; 
+            animation: load 5s normal forwards; 
+        } 
+        span::before { 
+            content: "Loading...";
+            position: absolute;  
+            top: 10px; 
+            color: green; 
+            animation: bounce 18s normal forwards; 
+        } 
+  
+        @keyframes load { 
+            0% {
+		width: 0;
+	}
+
+	20% {
+		width: 10%;
+	}
+
+	25% {
+		width: 24%;
+	}
+
+	43% {
+		width: 41%;
+	}
+
+	56% {
+		width: 50%;
+	}
+
+	66% {
+		width: 52%;
+	}
+
+	71% {
+		width: 60%;
+	}
+
+	75% {
+		width: 76%;
+    
+	}
+
+	94% {
+		width: 86%;
+	}
+
+	100% {
+		width: 100%;
+	}
+        } 
+  
+         
+  
+        @keyframes bounce { 
+            
+            0% {
+                content: "Loading...";
+            }
+            100% { 
+                content: "Done";
+            } 
+  
+           
+        } 
+        </style>
+    </head>
+    <body>
+        <div class="loader"> 
+            <div class="loading_1"></div> 
+            <div class="loading_2"><span></span></div> 
+        </div>
+    </body>
+</html>

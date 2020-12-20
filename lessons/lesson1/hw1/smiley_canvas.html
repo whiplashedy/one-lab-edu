@@ -1,0 +1,38 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <canvas id="smiley"  width="400" height="300"  >
+        </canvas>
+        <script>
+            var c = document.getElementById("smiley");
+            var ctx = c.getContext("2d");
+            ctx.moveTo(0, 0);
+            ctx.beginPath();
+            ctx.arc(100, 75, 60, 0, 2 * Math.PI);
+            var grd = ctx.createLinearGradient(40, 40, 50, 75);
+            grd.addColorStop(0, '#F9FF00');
+            grd.addColorStop(1, '#E0C000');
+            // Set the fill style
+            ctx.fillStyle = grd;
+            ctx.fill();
+            ctx.stroke();
+            ctx.beginPath();
+            //ctx.moveTo(140, 85);
+            ctx.arc(100, 85, 40, 0, Math.PI, false);
+            ctx.stroke();
+            ctx.beginPath();
+            //ctx.moveTo(88, 65);
+            ctx.arc(80, 65, 8, 0, Math.PI * 2, true); 
+            ctx.fillStyle = "#0d0b01";
+            ctx.fill();
+            ctx.beginPath();
+            //ctx.moveTo(128, 65);
+            ctx.arc(120, 65, 8, 0, Math.PI * 2, true);
+            ctx.fillStyle = "#0d0b01";
+            ctx.fill();
+            ctx.stroke();
+        </script>
+
+      </body>
+</html>
