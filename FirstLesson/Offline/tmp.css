@@ -150,18 +150,23 @@
 @keyframes fade {
     0% {
         opacity: 0;
+        transform: scale(0.0);
     }
     30% {
         background: blue;
+        transform: scale(0.3);
     }
     50% {
         background: red;
+        transform: scale(0.5);
     }
     70% {
         background: yellow;
+        transform: scale(0.7);
     }
     100% {
         opacity: 1;
+        transform: scale(1.0);
     }
 }
 
