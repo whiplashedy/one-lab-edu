@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Homework 1</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="main.js"></script>
+    </head>
+    <body>
+            
+        <header>Homework </header>
+        <hr>
+        <div class="progress">
+                <div class="progress-value"></div>
+              </div>
+        <div class="row">
+                <nav class="col-3 col-s-3 menu">
+                        <ul>
+                            <li><a href="index.html">Html5 new elements</a></li>
+                            <li><a href="/">Smile </a></li>
+                            <li>Bubles</li>
+                            <li>Loading</li>
+                        </ul>
+                        <canvas id="smile" width="200" height="200">
+                                Smiley with canvas
+                        </canvas>
+    
+                        <svg width="200" height="200">
+                            <circle cx="100" cy="100" r="50"
+                            stroke="orange" stroke-width="1" fill="#fc0" />
+                            <circle cx="84" cy="90" r="8" fill="black"/>
+                            <circle cx="116" cy="90" r="8" fill="black"/>
+                            <path fill="black" stroke="#000000" stroke-width="3" 
+                            d="M70, 115 C 100 130, 130 115, 130 115, 
+                            M130, 115, C 95 150,70 115, 70 115" /> 
+                            />
+                            Smiley with svg
+                        </svg>
+                </nav>
+                
+                <article class="col-6 col-s-9" >
+                    — Скажи что-нибудь хорошее, Олаф.  
+                    <br>
+                    — Хорошее? Черепахи могут дышать попой.
+
+                    
+                    <section>
+                    <video width="400" controls>
+                            <source src="shippuden.mp4" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                    </video>
+                    <audio controls>
+                        <source src="naruto.mp3" type="audio/mpeg">
+                      Your browser does not support the audio element.
+                      </audio>
+                    </section>
+                    <h3> Some elements from html5:</h3>
+                    <label for="quantity">...</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="5">
+                    
+                </article>
+                
+                
+                <aside class="col-3 col-s-12">
+                    <picture >
+                        <source srcset="robot1.png" media="(max-width: 200px)">
+                        <img src="robot1.png" alt="robot image" width="200px" class="robot">
+                    </picture> 
+                </aside>
+                
+        </div>
+        <footer>© 2020 Saule's homework Inc.</footer>
+    
+    </body>
+</html>
