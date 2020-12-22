@@ -6,3 +6,6 @@
 
 # temp files
 **/~$*
+
+# misc
+.DS_Store
