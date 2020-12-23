@@ -64,8 +64,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a570c23d-b9be-406d-9166-e82b5649ff54" name="Default Changelist" comment="HTML5 all tags, cavas smiley, svg smiley and animations">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0e1d016c-c804-453f-b7f8-e4ccfb8bfe3e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/lesson02.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercise01.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercise02.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transport/transport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,53 +85,61 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1lsKypNoa0IjGnO8cYHybwyCoBc" />
+  <component name="ProjectId" id="1m0fXFSSfMvZfYOaY2ikhOjGhlb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lesson02" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Node.js.transport.js">
+    <configuration name="Boeing.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/transport/Boeing.js" working-dir="$PROJECT_DIR$/transport">
+      <method v="2" />
+    </configuration>
+    <configuration name="exercise01.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/exercise01.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="exercise02.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/exercise02.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="transport.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/transport/transport.js" working-dir="$PROJECT_DIR$/transport">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.transport.js" />
+        <item itemvalue="Node.js.Boeing.js" />
+        <item itemvalue="Node.js.exercise02.js" />
+        <item itemvalue="Node.js.exercise01.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a570c23d-b9be-406d-9166-e82b5649ff54" name="Default Changelist" comment="" />
-      <created>1608380616076</created>
+      <changelist id="0e1d016c-c804-453f-b7f8-e4ccfb8bfe3e" name="Default Changelist" comment="" />
+      <created>1608635466948</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1608380616076</updated>
-      <workItem from="1608380617241" duration="4248000" />
-      <workItem from="1608405053371" duration="8428000" />
-      <workItem from="1608480191346" duration="6603000" />
-      <workItem from="1608634100798" duration="603000" />
+      <updated>1608635466948</updated>
+      <workItem from="1608635468477" duration="8364000" />
+      <workItem from="1608743143723" duration="13731000" />
     </task>
-    <task id="LOCAL-00001" summary="q">
-      <created>1608380674128</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1608380674128</updated>
-    </task>
-    <task id="LOCAL-00002" summary="HTML5 all tags, cavas smiley, svg smiley and animations">
-      <created>1608485010863</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1608485010863</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,19 +157,30 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="q" />
-    <MESSAGE value="HTML5 all tags, cavas smiley, svg smiley and animations" />
-    <option name="LAST_COMMIT_MESSAGE" value="HTML5 all tags, cavas smiley, svg smiley and animations" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="717" y="304" key="FileChooserDialogImpl" timestamp="1608635464746">
+    <state x="391" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608636578987">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="717" y="304" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608635464746" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1608485458700">
+    <state x="391" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608636578987" />
+    <state x="756" y="357" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608765085121">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608485458700" />
+    <state x="756" y="357" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608765085121" />
+    <state width="1415" height="184" key="GridCell.Tab.0.bottom" timestamp="1608765157749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1415" height="184" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608765157749" />
+    <state width="1415" height="184" key="GridCell.Tab.0.center" timestamp="1608765157749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1415" height="184" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608765157749" />
+    <state width="1415" height="184" key="GridCell.Tab.0.left" timestamp="1608765157749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1415" height="184" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608765157749" />
+    <state width="1415" height="184" key="GridCell.Tab.0.right" timestamp="1608765157749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1415" height="184" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608765157749" />
   </component>
 </project>
