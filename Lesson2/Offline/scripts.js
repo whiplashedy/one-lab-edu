@@ -869,7 +869,7 @@ class Toyota extends Car {
         this.name = "Toyota";
     }
     accelerate(moveSpeed) {
-        if (this.getStatus()) {
+        if (this.isActive) {
             this.moveSpeed += moveSpeed;
         }
     }
@@ -883,7 +883,7 @@ class Setra extends Bus {
         this.name = "Setra";
     }
     accelerate(moveSpeed) {
-        if (this.getStatus()) {
+        if (this.isActive) {
             this.moveSpeed += moveSpeed;
         }
     }
@@ -897,7 +897,7 @@ class Boeing extends Plane {
         this.name = "Boeing";
     }
     accelerate(moveSpeed) {
-        if (this.getStatus()) {
+        if (this.isActive) {
             this.moveSpeed += moveSpeed;
         }
     }
@@ -911,11 +911,11 @@ createTransport = () => {
     let hp = document.getElementById('transport-hp');
 
     if (transport && transport.value === "toyota") {
-        newTransport = new Toyota(false, model.value, hp.value);
+        newTransport = new Toyota(true, model.value, hp.value);
     } else if (transport && transport.value === "setra") {
-        newTransport = new Setra(false, model.value, hp.value);
+        newTransport = new Setra(true, model.value, hp.value);
     } else if (transport && transport.value === "boeing") {
-        newTransport = new Boeing(false, model.value, hp.value);
+        newTransport = new Boeing(true, model.value, hp.value);
     } else {
 
     }
