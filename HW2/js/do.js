@@ -54,7 +54,7 @@ class Plain extends Transport{
 
 }
 
-class Toyota extends Transport{
+class Toyota extends Car{
     constructor(model, hp){
         this.model = model;
         this.hp = hp;
@@ -68,7 +68,7 @@ class Toyota extends Transport{
     }
 }
 
-class Setra extends Transport{
+class Setra extends Bus{
     constructor(model, hp){
         this.model = model;
         this.hp = hp;
@@ -82,7 +82,7 @@ class Setra extends Transport{
     }
 }
 
-class Boeing extends Transport{
+class Boeing extends Plain{
     constructor(model, hp){
         this.model = model;
         this.hp = hp;
