@@ -4,7 +4,7 @@ const inputs = document.getElementsByClassName('text-inputs');
 console.log(inputs);
 
 assign = () => {
-    var transport1 = new Transport("Saule's car", true, 0);
+    let transport1 = new Transport("Saule's car", true, 0);
     transport1.getStatus();
     //just to check
 };
