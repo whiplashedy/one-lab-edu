@@ -12,7 +12,7 @@ function htmlEnc(s) {
 }
 
 doRefreshBtns = (elem) => {
-    let childrenBtns = elem.parentElement.getElementsByClassName('btn');
+    let childrenBtns = elem.parentElement.getElementsByClassName('js-button');
     for (let i of childrenBtns) {
         if (i.classList.contains('btn--grad--secondary')) {
             i.classList.remove('btn--grad--secondary');
@@ -184,7 +184,7 @@ doJoin = (elem) => {
 
     let display = document.getElementsByClassName('js-description');
     let ar3 = ar1.concat(ar2);
-    let passed = ar3.join(", ");
+    let passed = htmlEnc(ar3.join(", "));
     if (display && display.length > 0) {
         tmp = "ar1.concat(ar2).join(', ') = <br>" + passed.fontcolor('red');
         tmp = '<p>' + tmp + '</p>';
@@ -266,7 +266,7 @@ doPop = (elem) => {
 
     let display = document.getElementsByClassName('js-description');
     let ar3 = ar1.concat(ar2);
-    let passed = ar3.pop();
+    let passed = htmlEnc(ar3.pop());
     if (display && display.length > 0) {
         tmp = "ar1.concat(ar2).pop() = " + passed.toString().fontcolor('red');
         tmp += "<br>After pop = <br>";
@@ -334,7 +334,7 @@ doReduce = (elem) => {
 
     let display = document.getElementsByClassName('js-description');
     let ar3 = ar1.concat(ar2);
-    let passed = ar3.reduce((a, b) => a + b);
+    let passed = htmlEnc(ar3.reduce((a, b) => a + b));
     if (display && display.length > 0) {
         tmp = "ar1.concat(ar2).reduce((a, b) => a + b) = <br>" + passed.toString().fontcolor('red') + "<br>";
         tmp = '<p>' + tmp + '</p>';
@@ -358,7 +358,7 @@ doReduceRight = (elem) => {
 
     let display = document.getElementsByClassName('js-description');
     let ar3 = ar1.concat(ar2);
-    let passed = ar3.reduceRight((a, b) => a + b);
+    let passed = htmlEnc(ar3.reduceRight((a, b) => a + b));
     if (display && display.length > 0) {
         tmp = "ar1.concat(ar2).reduceRight((a, b) => a + b) = <br>" + passed.toString().fontcolor('red') + "<br>";
         tmp = '<p>' + tmp + '</p>';
@@ -415,7 +415,7 @@ doShift = (elem) => {
 
     let display = document.getElementsByClassName('js-description');
     let ar3 = ar1.concat(ar2);
-    let passed = ar3.shift();
+    let passed = htmlEnc(ar3.shift());
     if (display && display.length > 0) {
         tmp = "ar1.concat(ar2).shift() = " + passed.toString().fontcolor('red') + "<br>";
         tmp += "<br>After shift = <br>";
@@ -572,7 +572,7 @@ doToString = (elem) => {
 
     let display = document.getElementsByClassName('js-description');
     let ar3 = ar1.concat(ar2);
-    let passed = ar3.toString();
+    let passed = htmlEnc(ar3.toString());
     if (display && display.length > 0) {
         tmp = "ar1.concat(ar2).toString() = <br>" + passed.fontcolor('red');
         tmp = '<p>' + tmp + '</p>';
@@ -621,6 +621,34 @@ doUnshift = (elem) => {
     }
 };
 
+doToSource = (elem) => {
+    doRefreshBtns(elem);
+
+    let ar1 = [inputs[0].value, inputs[1].value, inputs[2].value];
+    let ar2 = [inputs[3].value, inputs[4].value, inputs[5].value];
+
+    let display = document.getElementsByClassName('js-description');
+    let ar3 = ar1.concat(ar2);
+    let passed = "toSource() is deprecated. This feature is obsolete. " +
+        "Although it may still work in some browsers, its use is discouraged since it could be removed at any time. " +
+        "Try to avoid using it.";
+    if (display && display.length > 0) {
+        tmp = passed.toString().fontcolor('red') + '<br>';
+        tmp = '<p>' + tmp + '</p>';
+        display[0].innerHTML = tmp;
+    } else {
+        console.log("Error, should be ==> ", passed);
+    }
+    if (elem.classList.contains('btn--grad') && !elem.classList.contains('btn--grad--secondary')) {
+        elem.classList.remove('btn--grad');
+        elem.classList.add('btn--grad--secondary');
+    } else {
+        doRefreshDisplayBtns(elem.parentElement);
+    }
+};
+
+
+
 doFind = (elem) => {
     doRefreshBtns(elem);
 
@@ -636,7 +664,7 @@ doFind = (elem) => {
         if (passed === undefined) {
             passedString = "Undefined";
         } else {
-            passedString = passed.toString();
+            passedString = htmlEnc(passed.toString());
         }
         tmp = "ar1.concat(ar2).find((elem) => elem === input-find) = " + passedString.fontcolor('red') + '<br>';
         tmp = '<p>' + tmp + '</p>';
@@ -669,7 +697,7 @@ doFindIndex = (elem) => {
         } else {
             passedString = passed.toString();
         }
-        tmp = "ar1.concat(ar2).find((elem) => elem === input-findIndex) = "
+        tmp = "ar1.concat(ar2).findIndex((elem) => elem === input-findIndex) = "
             + passedString.fontcolor('red') + '<br>';
         tmp = '<p>' + tmp + '</p>';
         display[0].innerHTML = tmp;
@@ -685,18 +713,102 @@ doFindIndex = (elem) => {
 };
 
 doEntries = (elem) => {
-
-};
-
-
-assign = () => {
-
-    console.log("assign");
+    doRefreshBtns(elem);
 
     let ar1 = [inputs[0].value, inputs[1].value, inputs[2].value];
     let ar2 = [inputs[3].value, inputs[4].value, inputs[5].value];
 
-    console.log(ar1.filter((v) => v.length > 2));
+    let display = document.getElementsByClassName('js-description');
+    let ar3 = ar1.concat(ar2);
+    let passed = ar3.entries();
+    if (display && display.length > 0) {
+        tmp = "ar1.concat(ar2).entries() = <br>";
+        let i = passed.next();
+        tmp += htmlEnc(i.value.toString());
+        i = passed.next()
+        for (; !i.done; i = passed.next()) {
+            tmp += ", ".fontcolor('red');
+            tmp += htmlEnc(i.value.toString());
+        }
+        tmp = '<p>' + tmp + '</p>';
+        display[0].innerHTML = tmp;
+    } else {
+        console.log("Error, should be ==> ", passed);
+    }
+    if (elem.classList.contains('btn--grad') && !elem.classList.contains('btn--grad--secondary')) {
+        elem.classList.remove('btn--grad');
+        elem.classList.add('btn--grad--secondary');
+    } else {
+        doRefreshDisplayBtns(elem.parentElement);
+    }
+};
+
+
+doFrom = (elem) => {
+    doRefreshBtns(elem);
+
+    let ar1 = [inputs[0].value, inputs[1].value, inputs[2].value];
+    let ar2 = [inputs[3].value, inputs[4].value, inputs[5].value];
+
+    let display = document.getElementsByClassName('js-description');
+    let ar3 = ar1.concat(ar2);
+    let passed = Array.from(ar3);
+    if (display && display.length > 0) {
+        tmp = "Array.from(ar1.concat(ar2)) = <br>";
+        tmp += "[".fontcolor('red');
+        for (let i in passed) {
+            tmp += htmlEnc(passed[i]);
+            if (i != passed.length - 1) {
+                tmp += ','.fontcolor('red');
+                tmp += ' ';
+            }
+        }
+        tmp += "]".fontcolor('red');
+        tmp = '<p>' + tmp + '</p>';
+        display[0].innerHTML = tmp;
+    } else {
+        console.log("Error, should be ==> ", passed);
+    }
+    if (elem.classList.contains('btn--grad') && !elem.classList.contains('btn--grad--secondary')) {
+        elem.classList.remove('btn--grad');
+        elem.classList.add('btn--grad--secondary');
+    } else {
+        doRefreshDisplayBtns(elem.parentElement);
+    }
+};
+
+doKeys = (elem) => {
+    doRefreshBtns(elem);
+
+    let ar1 = [inputs[0].value, inputs[1].value, inputs[2].value];
+    let ar2 = [inputs[3].value, inputs[4].value, inputs[5].value];
+
+    let display = document.getElementsByClassName('js-description');
+    let ar3 = ar1.concat(ar2);
+    let passed = ar3.keys();
+    if (display && display.length > 0) {
+        tmp = "ar1.concat(ar2).keys() = <br>";
+        tmp += "[".fontcolor('red');
+        let i = passed.next();
+        tmp += htmlEnc(i.value.toString());
+        i = passed.next();
+        for (; !i.done; i = passed.next()) {
+            tmp += ','.fontcolor('red');
+            tmp += ' ';
+            tmp += htmlEnc(i.value.toString());
+        }
+        tmp += "]".fontcolor('red');
+        tmp = '<p>' + tmp + '</p>';
+        display[0].innerHTML = tmp;
+    } else {
+        console.log("Error, should be ==> ", passed);
+    }
+    if (elem.classList.contains('btn--grad') && !elem.classList.contains('btn--grad--secondary')) {
+        elem.classList.remove('btn--grad');
+        elem.classList.add('btn--grad--secondary');
+    } else {
+        doRefreshDisplayBtns(elem.parentElement);
+    }
 };
 
 class Transport {
@@ -712,10 +824,16 @@ class Transport {
         this.isActive = false;
     }
     move() {
-        this.position += this.moveSpeed;
+        if (this.getStatus()) {
+            this.position += this.moveSpeed;
+        }
     }
     getStatus() {
-        return this.isActive;
+        if (this.isActive) {
+            return "Active";
+        } else {
+            return "Inactive";
+        }
     }
 }
 
@@ -748,9 +866,12 @@ class Toyota extends Car {
         super(isActive);
         this.model = model;
         this.hp = hp;
+        this.name = "Toyota";
     }
-    accelerate() {
-
+    accelerate(moveSpeed) {
+        if (this.getStatus()) {
+            this.moveSpeed += moveSpeed;
+        }
     }
 }
 
@@ -759,23 +880,80 @@ class Setra extends Bus {
         super(isActive);
         this.model = model;
         this.hp = hp;
+        this.name = "Setra";
     }
-    accelerate() {
-
+    accelerate(moveSpeed) {
+        if (this.getStatus()) {
+            this.moveSpeed += moveSpeed;
+        }
     }
 }
 
 class Boeing extends Plane {
     constructor(isActive, model, hp) {
-        super(isActive, name);
+        super(isActive);
         this.model = model;
         this.hp = hp;
+        this.name = "Boeing";
     }
-    accelerate() {
-
+    accelerate(moveSpeed) {
+        if (this.getStatus()) {
+            this.moveSpeed += moveSpeed;
+        }
     }
 }
 
-// let toyota = new Toyota();
-// let setra = new Setra();
-// let boeing = new Boeing();
+var newTransport;
+
+createTransport = () => {
+    let transport = document.getElementById('transport');
+    let model = document.getElementById('transport-model');
+    let hp = document.getElementById('transport-hp');
+
+    if (transport && transport.value === "toyota") {
+        newTransport = new Toyota(false, model.value, hp.value);
+    } else if (transport && transport.value === "setra") {
+        newTransport = new Setra(false, model.value, hp.value);
+    } else if (transport && transport.value === "boeing") {
+        newTransport = new Boeing(false, model.value, hp.value);
+    } else {
+
+    }
+    console.log(newTransport);
+    displayTransport();
+
+    if (newTransport) {
+        document.getElementById('transport-accelerate').disabled = false;
+        document.getElementById('transport-move').disabled = false;
+        document.getElementById('input-transport-accelerate').disabled = false;
+    }
+};
+
+displayTransport = () => {
+    let display = document.getElementsByClassName('js-description');
+    if (display && display.length > 1) {
+        let tmp = "Transport: " + htmlEnc(newTransport.name).fontcolor('red') + "<br>";
+        tmp += "Model: " + htmlEnc(newTransport.model).fontcolor('red') + "<br>";
+        tmp += "HP: " + htmlEnc(newTransport.hp).fontcolor('red') + "<br>";
+        tmp += "Movespeed: " + htmlEnc(newTransport.moveSpeed.toString()).fontcolor('red') + "<br>";
+        tmp += "Seatplaces: " + htmlEnc(newTransport.seatPlaces.toString()).fontcolor('red') + "<br>";
+        tmp += "Status: " + htmlEnc(newTransport.getStatus().toString()).fontcolor('red') + '<br>';
+        tmp += 'Position: ' + htmlEnc(newTransport.position.toString()).fontcolor('red') + '<br>'
+        tmp = "<p>" + tmp + "</p>";
+        display[1].innerHTML = tmp;
+    }
+};
+
+moveTransport = () => {
+    newTransport.move();
+    displayTransport();
+}
+
+accelerateTransport = () => {
+    let inputAcceleration = document.getElementById('input-transport-accelerate');
+    let numberAcceleration = Number(inputAcceleration.value);
+    if (!Number.isNaN(numberAcceleration)) {
+        newTransport.accelerate(numberAcceleration);
+    }
+    displayTransport();
+}

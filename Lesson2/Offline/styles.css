@@ -4,6 +4,19 @@ html {
     box-sizing: border-box;
 }
 
+section {
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+}
+
+section, h2 {
+    margin-top: 0 !important;
+}
+
+h2 {
+    padding-top: 20px;
+}
+
 *, *:before, *:after {
     box-sizing: inherit;
 }
@@ -18,7 +31,7 @@ body::-webkit-scrollbar {
 }
 
 body {
-    background-color: lightcoral;
+    /*background-color: lightcoral;*/
     margin: 0;
     padding: 0;
     scrollbar-width: thin;
@@ -40,7 +53,16 @@ body::-webkit-scrollbar-thumb {
 
 article {
     border-bottom: 5px solid black;
-    margin-bottom: 50px;
+    border-top: 5px solid black;
+    margin-bottom: 0;
+}
+
+article:nth-child(odd) {
+    background-color: lightcoral;
+}
+
+article:nth-child(even) {
+    background-color: lightsalmon;
 }
 
 .main-header {
@@ -60,16 +82,23 @@ article {
 }
 
 .description-wrapper {
-    height: 200px;
+    height: 300px;
     width: 100%;
-    margin: 50px auto;
+    margin: 0px auto;
     border-bottom: 2px black dotted;
     border-top: 2px black dotted;
     overflow-y: auto;
-    background-color: cornflowerblue;
+    background-color: lightcyan;
     scrollbar-width: thin;
     scrollbar-color: var(--thumbBG) var(--scrollbarBG);
     transition: opacity 0.5s ease-in-out;
+}
+
+.description-wrapper:before {
+    content: "Display";
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 40px;
 }
 
 .description-wrapper::-webkit-scrollbar {
@@ -86,10 +115,10 @@ article {
 }
 
 .description-wrapper > p {
-    font-weight: bold;
+    font-weight: normal;
     color: darkblue;
-    font-size: 40px;
-    line-height: 50px;
+    font-size: 2em;
+    line-height: 2em;
     word-wrap: break-word;
     overflow: hidden;
 }
@@ -104,6 +133,20 @@ article {
     margin: 20px auto;
 }
 
+.select-inputs {
+    display: inline;
+    border-radius: 10px;
+    padding: 10px;
+    width: 10%;
+    /*appearance: none;*/
+    border: 5px solid snow;
+    background-image: linear-gradient(to right, cornsilk, lightcyan 50%, cornsilk 100%);
+    margin: 0 10px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    text-align: center;
+}
+
 .text-inputs {
     margin: 0 10px;
     width: 10%;
@@ -111,8 +154,8 @@ article {
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
     padding: 10px;
     font-weight: bold;
-    /*background: rgba(255, 255, 255, 0.5);*/
     background-image: linear-gradient(to right, cornsilk, lightcyan 50%, cornsilk 100%);
+    border-radius: 10px;
 }
 
 .text-inputs:focus {
@@ -128,11 +171,11 @@ article {
     transform: scale(1.08);
 }
 
-.text-inputs:nth-child(3n+0) {
+.text-inputs:nth-child(3n+1) {
     margin-right: 20px;
 }
 
-.text-inputs:nth-child(3n+1) {
+.text-inputs:nth-child(3n+2) {
     margin-left: 20px;
 }
 
@@ -141,7 +184,7 @@ article {
 }
 
 .buttons-wrapper {
-    margin: 50px auto;
+    margin: 0px auto;
 }
 
 .btn {
