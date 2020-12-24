@@ -1,0 +1,33 @@
+const inputs = document.getElementsByClassName('text-inputs');
+console.log(inputs);
+
+assign = () => {
+    let ar1 = [inputs[0].value, inputs[1].value];
+    let ar2 = [inputs[2].value, inputs[3].value];
+    let arr=[...ar1,...ar2];
+    let filt=arr.filter((v) => v.length>2);
+    let mapping=arr.map((v,i) => v.length+i);
+    let red=arr.reduce((x,y)=>x+y);
+    let redright=arr.reduceRight((x,y)=>x+y);
+    let index=arr.findIndex(x => x[0]==='h');
+    let finding=arr.find(x => x[0]==="h");
+    let every1=arr.every(x => x==='i');
+    let entries1=arr.entries();
+    let keys1=arr.keys()[2];
+    let values1=arr.values()[2];
+    let copywithin1=arr.copyWithin(2,0);
+    let fill1=arr.fill('a');
+    arr.forEach(v=>console.log(v));
+    console.log("Filter: "+ filt);
+    console.log("Mapping: "+ mapping);
+    console.log("Reduce: "+ red);
+    console.log("Reduce right: "+ redright);
+    console.log("Find index: "+ index);
+    console.log("Find: "+ finding);
+    console.log("Every: "+every1);
+    console.log("Entries "+ entries1);
+    console.log("Keys:" +keys1);
+    console.log("Values: "+ values1);
+    console.log("CopyWithin: "+ copywithin1);
+    console.log("Fill: "+ fill1);
+};
