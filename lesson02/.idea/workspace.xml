@@ -65,16 +65,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e1d016c-c804-453f-b7f8-e4ccfb8bfe3e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/lesson02.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercise01.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercise02.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transport/transport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +95,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../react-samurai/01/my-app01" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Node.js.transport.js">
@@ -138,7 +129,8 @@
       <option name="presentableId" value="Default" />
       <updated>1608635466948</updated>
       <workItem from="1608635468477" duration="8364000" />
-      <workItem from="1608743143723" duration="13731000" />
+      <workItem from="1608743143723" duration="14253000" />
+      <workItem from="1608807751509" duration="2357000" />
     </task>
     <servers />
   </component>
@@ -166,21 +158,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="357" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608765085121" />
-    <state width="1415" height="184" key="GridCell.Tab.0.bottom" timestamp="1608765157749">
+    <state x="806" y="365" key="FileChooserDialogImpl" timestamp="1608821087221">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1415" height="184" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608765157749" />
-    <state width="1415" height="184" key="GridCell.Tab.0.center" timestamp="1608765157749">
+    <state x="806" y="365" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608821087221" />
+    <state width="1415" height="184" key="GridCell.Tab.0.bottom" timestamp="1608765710317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1415" height="184" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608765157749" />
-    <state width="1415" height="184" key="GridCell.Tab.0.left" timestamp="1608765157749">
+    <state width="1415" height="184" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608765710317" />
+    <state width="1415" height="184" key="GridCell.Tab.0.center" timestamp="1608765710317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1415" height="184" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608765157749" />
-    <state width="1415" height="184" key="GridCell.Tab.0.right" timestamp="1608765157749">
+    <state width="1415" height="184" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608765710317" />
+    <state width="1415" height="184" key="GridCell.Tab.0.left" timestamp="1608765710317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1415" height="184" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608765157749" />
+    <state width="1415" height="184" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608765710317" />
+    <state width="1415" height="184" key="GridCell.Tab.0.right" timestamp="1608765710317">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1415" height="184" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608765710317" />
   </component>
 </project>
