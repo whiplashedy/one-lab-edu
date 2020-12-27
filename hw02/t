@@ -1,0 +1,4 @@
+index.html could not be copied to 404.html. This does not look like an angular-cli project?!
+(Hint: are you sure that you have setup the directory correctly?)
+Diagnostic info: ENOENT: no such file or directory, stat 'C:\Users\whipl\Desktop\angular-lessons\one-lab-edu\hw02\auth2\dist\C:\Users\whipl\Desktop\angular-lessons\one-lab-edu\hw02\auth2\index.html'
+🚀 Uploading via git, please wait...
