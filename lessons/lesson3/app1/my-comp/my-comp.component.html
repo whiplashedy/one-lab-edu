@@ -1,0 +1,14 @@
+<p>my-comp works!</p>
+<div class="inputs-wrapper">
+    <input type="text" placeholder="input 1" class="text-inputs" #box1>
+    <input type="text" placeholder="input 2" class="text-inputs" #box2>
+    <input type="text" placeholder="input 3" class="text-inputs" #box3>
+    <input type="text" placeholder="input 4" class="text-inputs" #box4>
+</div>
+<div class="buttons-wrapper">
+    <button class="ok-button" (click)="assign(box1.value,box2.value,box3.value,box4.value)">OK</button>
+</div>
+<p></p>
+<div>
+    <button id="temp" (click)="getval.emit('temp')">Get coordinates</button>
+</div>
