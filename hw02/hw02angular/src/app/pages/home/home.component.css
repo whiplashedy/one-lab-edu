@@ -1,9 +1,0 @@
-.moving-square{
-  cursor: pointer;
-  background: red;
-  transition: all 1s;
-  top: 0px;
-  left: 0px;
-  width: 75px;
-  height: 75px;
-}
