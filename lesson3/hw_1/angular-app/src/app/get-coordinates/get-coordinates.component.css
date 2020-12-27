@@ -1,0 +1,29 @@
+.container {
+    position: relative;
+    bottom: 0;
+    width: 300px;
+    height: 300px;
+    background: #0053ee;
+    animation: div-move 5s infinite ease-in;
+}
+
+@keyframes div-move {
+    0% {
+        bottom: -400px;
+        left: 0px;
+    }
+    50% {
+        bottom: -200px;
+        left: 500px;
+    }
+    100% {
+        bottom: 400px;
+        left: 1000px;
+        background: rgb(243, 0, 0);
+    }
+}
+
+.button2 {
+    width: 100px;
+    height: 50px;
+}
