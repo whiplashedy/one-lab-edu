@@ -1,0 +1,19 @@
+<div class="login-container" *ngIf="!logged">
+    <form>
+        <div class="mb-3">
+          <label for="exampleInputUser" class="form-label" >Username</label>
+          <input type="username" placeholder="username" class="form-control" id="usrn" aria-describedby="userHelp">
+          <div id="userHelp" class="form-text">We'll never share your personal data with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label" >Password</label>
+          <input type="password" placeholder="password" class="form-control" id="pswrd">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="login()">Sign in</button>
+    </form>
+</div>
+<!-- <div *ngIf="logged">
+    <h1>You are logged in</h1>
+    <button (click)="logout()" class="btn-primary">Logout</button>
+</div> -->
+
