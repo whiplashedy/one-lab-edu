@@ -1,0 +1,19 @@
+<p>formreactive works!</p>
+
+<div>
+    <form name ="form" [formGroup]=form>
+
+        <input type="text" class="form-control" formControlName = "firstName"[ngClass]=
+        "{'is-invalid':form.get('firstName').touched && form.get('firsName').invalid}">
+
+        <input type="text" class="form-control" formControlName = "lastName"[ngClass]=
+        "{'is-invalid':form.get('lastName').touched && form.get('lastName').invalid}">
+
+
+    </form>
+
+    <h1>
+        sdasdasd
+        
+    </h1>
+</div>
