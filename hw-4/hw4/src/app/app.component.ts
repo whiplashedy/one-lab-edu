@@ -16,39 +16,28 @@ export class AppComponent implements OnInit{
 
   ngOnInit()
   {
-    this.nameControl = new FormControl('Sanzhar');
+  //   this.nameControl = new FormControl('Sanzhar');
     
-    this.nameControl.valueChanges.subscribe((value) =>console.log(value));
-    this.nameControl.statusChanges.subscribe((status)=>{
-    console.log(this.nameControl.errors);
-    console.log(status);
-   });
+  //   this.nameControl.valueChanges.subscribe((value) =>console.log(value));
+  //   this.nameControl.statusChanges.subscribe((status)=>{
+  //   console.log(this.nameControl.errors);
+  //   console.log(status);
+  //  });
    
-   this.fullnameControl = new FormGroup({
-      name:new FormControl('',[Validators.required,Validators.minLength(5)]),
-      surname:new FormControl('',[Validators.required,Validators.minLength(5)]),
-      number:new FormControl('',[Validators.required,Validators.minLength(5)]),
-      adress:new FormControl('',[Validators.required,Validators.minLength(5)]),
-      id:new FormControl('',[Validators.required,Validators.minLength(5)]),
-      country:new FormControl('',[Validators.required,Validators.minLength(5)]),
-      city:new FormControl('',[Validators.required,Validators.minLength(5)]),
-      email:new FormControl('',[Validators.required,Validators.minLength(5)]) ,
-      fathersname:new FormControl('',[Validators.required,Validators.minLength(5)]),
-      mothersname:new FormControl('',[Validators.required,Validators.minLength(5)])
-    });
+  //  this.fullnameControl = new FormGroup({
+  //     name:new FormControl('',[Validators.required,Validators.minLength(5)]),
+  //     surname:new FormControl('',[Validators.required,Validators.minLength(5)]),
+  //     number:new FormControl('',[Validators.required,Validators.minLength(5)]),
+  //     adress:new FormControl('',[Validators.required,Validators.minLength(5)]),
+  //     id:new FormControl('',[Validators.required,Validators.minLength(5)]),
+  //     country:new FormControl('',[Validators.required,Validators.minLength(5)]),
+  //     city:new FormControl('',[Validators.required,Validators.minLength(5)]),
+  //     email:new FormControl('',[Validators.required,Validators.minLength(5)]) ,
+  //     fathersname:new FormControl('',[Validators.required,Validators.minLength(5)]),
+  //     mothersname:new FormControl('',[Validators.required,Validators.minLength(5)])
+  //   });
     
-    this.fullnameControl.valueChanges.subscribe((value) => console.log(value));
-    this.fullnameControl.statusChanges.subscribe((status)=>console.log(status));
+  //   this.fullnameControl.valueChanges.subscribe((value) => console.log(value));
+  //   this.fullnameControl.statusChanges.subscribe((status)=>console.log(status));
   }
 }
- function myValidator(number)
- {
-   return function (formControl:FormControl)
-   {
-     if(formControl.value.length<number)
-     {
-       return{}
-     }
-   }
- }
-
