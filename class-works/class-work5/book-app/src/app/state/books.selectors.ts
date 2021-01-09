@@ -24,7 +24,8 @@ export const selectBookCollection = createSelector(
         selectBooks,
         selectCollectionState,
         (books: Array<Book>, collection: Array<string>) =>
-        { collection.map( (id) => books.find( (book) => book.id === id )); }
+        { return collection.map( (id) => books.find( (book) => book.id === id )); } 
+        //without return does not work ?
         /* get books array, collection array
         and returns statement: collection:  mapped id with book ?
         */

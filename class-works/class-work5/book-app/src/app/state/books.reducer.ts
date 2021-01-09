@@ -7,7 +7,6 @@ export const initialState: ReadonlyArray<Book> = []; // read only array
 
 export const booksReducer = createReducer(
     initialState,
-    // tslint:disable-next-line:no-shadowed-variable
     on(retrievedBookList, (state, {Book}) => [...Book])
 );
 
