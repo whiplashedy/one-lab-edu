@@ -1,0 +1,4 @@
+<div>
+  <div *ngIf="isAuthenticated"> MY CONTENT</div>
+  <div *ngIf="!isAuthenticated" (click)="notLogin()">You should login! Click here</div>
+</div>

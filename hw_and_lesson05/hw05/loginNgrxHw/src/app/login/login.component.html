@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center p-4">
+    <div class="col-md-6">
+      <form [formGroup]="form" (ngSubmit)="submit($event)">
+        <h3>Login</h3>
+
+        <div class="form-group p-2">
+          <input class="form-control" placeholder="Enter email" formControlName = "email">
+          <span class = "error" *ngIf ="form.get('email').invalid">Invalid email</span>
+        </div>
+        <div class="form-group p-2">
+          <input class="form-control" placeholder="Enter Password" formControlName = "password">
+
+          <span class = "error" *ngIf ="form.get('password').invalid">Minimum possible password size is 8</span>
+        </div>
+        <div class="form-group p-2">
+          <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
