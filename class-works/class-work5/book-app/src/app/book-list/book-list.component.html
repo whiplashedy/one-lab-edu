@@ -1,1 +1,13 @@
 <p>book-list works!</p>
+<div class="book-item" *ngFor="let book of books">
+    <p>{{book.volumeInfo.title}}</p>
+    <span> by {{book.volumeInfo.authors}} </span>
+    <button
+    (click)="add.emit(book.id)"
+    data-test="add-button"
+  >Add to Collection</button>
+</div>
+
+<!--evenemitter is to trigger, as action took place
+    on is to bind function, emit is to fire an action
+-->
