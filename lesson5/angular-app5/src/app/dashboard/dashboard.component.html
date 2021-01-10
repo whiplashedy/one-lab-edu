@@ -1,0 +1,37 @@
+  <nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">Products</a>
+  <button class="btn btn-outline-primary my-2 my-sm-0" (click)="signOut()"type="submit">Log Out</button>
+</nav>
+
+
+<div *ngFor="let product of products; index as productId">
+  <h3>
+ 
+    <a  [title]="product.name + ' details'" [routerLink]="['/products', productId]">
+      {{ product.name }}
+    </a>
+  </h3>
+ <a href="{{product.site}}" target= "_blank "> 
+   <img src="{{product.image}}"> 
+</a>
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+  <p *ngIf ="product.price" id="price">
+    Price: {{product.price}} KZT
+  </p>
+  <p id="rating">
+    Rating: {{product.rating}}
+  </p>
+  
+  <button (click)="share(product)">
+    Share
+  </button>
+  <app-product-alerts
+  [product]="product"
+  (notify)="onNotify()">
+  </app-product-alerts>
+</div>
+
+
+
