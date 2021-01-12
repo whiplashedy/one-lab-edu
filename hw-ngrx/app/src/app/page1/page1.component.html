@@ -1,0 +1,10 @@
+<h1>PAGE1</h1>
+<button id="increment" (click)="increment()">Increment</button>
+
+<div>Current Count: {{ count$ | async }}</div>
+
+<button id="decrement" (click)="decrement()">Decrement</button>
+
+<button id="reset" (click)="reset()">Reset Counter</button>
+
+<a [routerLink]="'/page2'">page2</a>
