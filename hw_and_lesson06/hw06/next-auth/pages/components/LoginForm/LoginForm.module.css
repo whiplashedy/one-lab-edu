@@ -1,0 +1,21 @@
+.loginForm{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.doSave{
+    font-size: 70%;
+}
+
+.errors{
+    font-size: 70%;
+    color: #ec0000;
+}
+.showPassword{
+    font-size: 70%;
+    padding-top: 20px;
+}
+.password{
+    display: flex;
+    flex-direction: row;
+}
