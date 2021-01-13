@@ -1,15 +1,39 @@
 <div class="background"></div>
 <div class="fade-in container d-flex vh-100 vw-100">
-  <div class=" credentials-form credentials-form__gray w-75 text-center mx-auto my-auto">
-    <h2 class="my-3">Login</h2>
-    <input class="credentials-text-input d-block w-75 my-1 mx-auto p-2" type="text" [(ngModel)]="email" placeholder="Enter email"/>
-    <input class="credentials-text-input d-block w-75 mt-1 mb-5 mx-auto p-2" type="password" [(ngModel)]="password" placeholder="Enter password"/>
-
-    <button class="btn btn-primary text-truncate w-75 d-block p-1 my-1 mx-auto" (click)="login()" [disabled]="!email || !password || isLoading">
-      Login
-    </button>
-    <button class="btn btn-secondary text-truncate w-75 d-block p-1 mt-1 mb-3 mx-auto" [routerLink]="'/auth/register'">
-      I don't have an account
-    </button>
+  <div class="authform authform--transpgray authform--shadow mx-auto my-auto" *ngIf="loginForm">
+    <form class="form-group" [formGroup]="loginForm" (ngSubmit)="login()">
+      <h3 class="authform__title text-center my-3">Login</h3>
+      <input class="form-control authform--text-input d-block w-75 my-1 mx-auto p-2"
+             type="text"
+             placeholder="Enter email"
+             formControlName= "email"
+             [ngClass]="{ 'is-invalid': this.email?.touched && this.email?.errors }"/>
+      <div *ngIf="email?.touched && email?.errors" class="text-center invalid-feedback w-75 h-100 mx-auto mb-3">
+        <div *ngIf="email?.errors?.required" class="small">Email is required</div>
+        <div *ngIf="email?.errors?.email" class="small">Email must be valid</div>
+        <div *ngIf="email?.errors?.maxlength" class="small">Email is too long</div>
+      </div>
+      <input class="form-control authform--text-input d-block w-75 my-1 mx-auto p-2"
+             type="password"
+             placeholder="Enter password"
+             formControlName= "password"
+             [ngClass]="{ 'is-invalid': this.password?.touched && this.password?.errors }"/>
+      <div *ngIf="password?.touched && password?.errors" class="text-center invalid-feedback w-75 h-100 mx-auto mb-3">
+        <div *ngIf="password?.errors?.required" class="small">Password is required</div>
+        <div *ngIf="password?.errors?.minlength" class="small">Password is too short</div>
+        <div *ngIf="password?.errors?.maxlength" class="small">Password is too long</div>
+      </div>
+      <p class="text-center small font-weight-normal w-75 mx-auto">
+        <span>Not a member? </span>
+        <a class="font-weight-weight" [routerLink]="'/auth/register'">
+          <strong>Sign up</strong>
+        </a>
+      </p>
+      <button type="submit"
+              class="btn btn-primary text-truncate d-block w-75 p-1 mt-3 mb-1 mx-auto"
+              [disabled]="loginForm.invalid || isLoading">
+        Login
+      </button>
+    </form>
   </div>
 </div>
