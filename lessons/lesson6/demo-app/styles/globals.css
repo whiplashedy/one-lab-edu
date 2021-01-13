@@ -1,0 +1,32 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color:lavenderblush;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.central{
+  position: absolute;
+  margin:0;
+  width:200px;
+  height: 500px;
+  text-align: center;
+  top:30px;
+  right:700px;
+  border:5px solid lightskyblue;
+  background-color:ghostwhite;
+}
+.flexxx{
+  
+  list-style-type: none;
+}
