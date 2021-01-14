@@ -2,6 +2,8 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { firebaseClient } from '../../auth/firebaseClient';
 import { firebaseAdmin } from '../../auth/firebaseAdmin';
 import nookies from 'nookies';
+import isOverflowing from 'react-overlays/isOverflowing';
+import Link from 'next/link';
 
 export interface User {
     id: number,
@@ -38,6 +40,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
         }
 
     } catch (err) {
+        console.log("failed to auth", err);
         return {
             redirect: {
                 permanent: false,
@@ -49,18 +52,28 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 }
 
 function Page({ data, message }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    return <div>
-        <p>{ message }</p>
-        <button
-            onClick={async () => {
-                await firebaseClient.auth().signOut();
-                window.location.href = "/";
-            }}
-        >
-            Sign out
-        </button>
-        <table>
-            <thead>
+    return <div className={"container overflow-auto py-2"}>
+        <div className={"text-truncate w-100 mb-5"}>
+            { message }
+            <div className="btn-group float-right">
+                <Link href='/'>
+                    <button className="btn btn-sm btn-info">Home page</button>
+                </Link>
+                <button
+                    className={"btn btn-sm btn-dark"}
+                    type={"button"}
+                    onClick={async () => {
+                        await firebaseClient.auth().signOut();
+                        window.location.href = "/";
+                    }}
+                >
+                    Sign out
+                </button>
+            </div>
+        </div>
+        <h4 className="text-center mb-3">Список юзеров</h4>
+        <table className={"table"}>
+            <thead className={"thead-light"}>
                 <tr>
                     {
                         Object.keys(data[0] || []).map((ky) => <th scope="col" key={ ky }> { ky } </th>)
