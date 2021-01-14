@@ -1,0 +1,15 @@
+<div *ngIf="!isSignedIn" class="signUp">
+  <h3>Sign Up</h3>
+  <input placeholder="Email" type="text" #emailSignUp><br><br>
+  <input placeholder="Password" type="password" #passSignUp>
+  <br><br>
+  <button class="btn-up" (click)="onSignUp(emailSignUp.value,passSignUp.value)">Sign Up</button>
+</div>
+<div *ngIf="!isSignedIn" class="signIn">
+  <h3>Sign In</h3>
+  <input placeholder="Email" type="text" #email><br><br>
+  <input placeholder="Password" type="password" #password>
+  <br><br>
+  <button class="btn-in" (click)="onSignIn(email.value,password.value)">Sign In</button>
+</div>
+<app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
