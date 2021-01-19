@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(private store: Store<{ login: {loading: boolean, isLoggedIn: boolean} }>, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.loginstate$ = this.store.pipe(select(state => state.login));
+    // this.loginstate$ = this.store.pipe(select(state => state.login));
     this.form = this.fb.group({
       login: [null, Validators.required],
       password: [null, Validators.required],
