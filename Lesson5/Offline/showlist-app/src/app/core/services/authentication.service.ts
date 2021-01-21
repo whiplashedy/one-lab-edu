@@ -4,9 +4,8 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
 import {Observable} from 'rxjs';
-import { CoreModule } from '@core/core.module';
 
-@Injectable({ providedIn: CoreModule })
+@Injectable({ providedIn: 'root'})
 export class AuthenticationService {
   user: Observable<firebase.User | null>;
   constructor(private router: Router, private firebaseAuth: AngularFireAuth) {

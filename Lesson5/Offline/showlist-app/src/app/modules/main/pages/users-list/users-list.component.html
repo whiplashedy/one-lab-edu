@@ -18,6 +18,7 @@
       <th scope="col">Username</th>
       <th scope="col">Email</th>
       <th scope="col">Телефон</th>
+      <th scope="col">Действие</th>
     </tr>
     </thead>
     <tbody>
@@ -27,6 +28,11 @@
         <td>{{user.username}}</td>
         <td>{{user.email}}</td>
         <td>{{user.phone}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="removeUser(user)">
+            Remove
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -4,6 +4,9 @@ import { Observable, of, range, Subscriber, Subscription, throwError } from 'rxj
 import { catchError, take, tap, map } from 'rxjs/operators';
 import { User } from '@data/models/user.model';
 import { UsersService } from '@data/services/users.service';
+import { Store, select } from '@ngrx/store';
+import { selectUsers, UsersState } from '@core/store/users/users.reducer';
+import { LoadUsersAction, RemoveUserAction } from '@core/store/users/users.actions';
 
 @Component({
   selector: 'app-users-list',
@@ -25,11 +28,17 @@ export class UsersListComponent implements OnInit, OnDestroy {
 
   pageNumber = 0;
 
-  constructor(private router: Router, private usersService: UsersService, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router,
+              private usersService: UsersService,
+              private activatedRoute: ActivatedRoute,
+              private usersStore: Store<UsersState>) {
   }
 
   ngOnInit(): void {
     console.log('UsersListComponent is loaded');
+
+    this.usersStore.dispatch(LoadUsersAction());
+    this.users$ = this.usersStore.pipe(select(selectUsers));
 
     this.sub$ = this.activatedRoute.queryParams.subscribe(params => {
       if (((params['page'] != null) && (params['page'] !== '') && !isNaN(Number(params['page'])))) {
@@ -44,13 +53,6 @@ export class UsersListComponent implements OnInit, OnDestroy {
       this.endIndex = Math.min((this.pageNumber + 1) * this.MAX_ELEMS_PER_PAGE, this.len + 1);
     });
 
-    this.users$ = this.usersService.getAll().pipe(
-      catchError(error => {
-        console.log('in users-list component error = ', error);
-        return throwError(error);
-      })
-    );
-    this.user$ = this.usersService.get(2);
   }
 
   ngOnDestroy(): void {
@@ -62,15 +64,9 @@ export class UsersListComponent implements OnInit, OnDestroy {
   }
 
   onPageClick(pageNumber: number): void {
-    console.log("page number = ", pageNumber);
-
     this.pageNumber = pageNumber;
     this.startIndex = pageNumber * this.MAX_ELEMS_PER_PAGE;
     this.endIndex = Math.min((this.pageNumber + 1) * this.MAX_ELEMS_PER_PAGE, this.len + 1);
-
-    console.log(this.pageNumber);
-    console.log(this.startIndex);
-    console.log(this.endIndex);
 
     const queryParams: Params = { page: pageNumber.toString() };
     this.router.navigate(
@@ -81,5 +77,9 @@ export class UsersListComponent implements OnInit, OnDestroy {
         replaceUrl: true,
         queryParamsHandling: 'merge'
       });
+  }
+
+  removeUser(user: User): void {
+    this.usersStore.dispatch(RemoveUserAction( { user } ));
   }
 }
