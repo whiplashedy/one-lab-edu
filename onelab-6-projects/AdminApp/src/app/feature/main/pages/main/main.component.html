@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="wrapper text-center">
+
+    <h3>Protected page</h3>
+    <hr>
+
+    <p *ngIf="sessionUser$ | async; let sessionUser">UID is <strong>{{sessionUser.id}}</strong></p>
+    <p *ngIf="isLoggedIn$ | async; let isLoggedIn">isLoggedIn is <strong>{{isLoggedIn}}</strong></p>
+    <button class="btn btn-primary" (click)="logout()">Log out</button>
+    <p class="text-center text-secondary text-truncate w-75 mx-auto" *ngIf="isLoading$ | async">Loading...</p>
+  </div>
+</div>
