@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class NewComponent implements OnInit {
   title:string;
   searchText:string = '';
+  model = 'BMW';
 
   constructor( private route: ActivatedRoute) {}
 
