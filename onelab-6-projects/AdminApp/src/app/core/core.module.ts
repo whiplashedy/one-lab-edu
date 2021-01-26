@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { throwIfAlreadyLoaded } from '@core/guard/module-import.guard';
 import { MustBeAuthGuard } from '@core/guard/must-be-auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpErrorInterceptor } from '@core/interceptors/http.error.interceptor';
+import { HttpErrorInterceptor } from '@core/interceptor/http.error.interceptor';
 import { NotFoundPageComponent } from './static/notfound-page/notfound-page.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { SessionUserEffects } from '@core/store/session-user/session-user.effects';
-import { sessionUserReducer } from '@core/store/session-user/session-user.reducer';
+import { SessionUserEffect } from '@core/store/session-user/session-user.effect';
 import { RouterModule } from '@angular/router';
+import { reducers } from '@core/store';
 
 @NgModule({
   declarations: [
@@ -31,10 +31,10 @@ import { RouterModule } from '@angular/router';
     }),
     AngularFireAuthModule,
 
-    StoreModule.forRoot({
-      sessionUser: sessionUserReducer
-    }),
-    EffectsModule.forRoot([SessionUserEffects])
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([
+      SessionUserEffect
+    ])
   ],
   providers: [
     MustBeAuthGuard,

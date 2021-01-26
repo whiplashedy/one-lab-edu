@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '@core/services/authentication.service';
+import { AuthenticationService } from '@core/service/authentication.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { selectErrorMsg, selectIsLoading, SessionUserState } from '@core/store/session-user/session-user.reducer';
-import { LoginSessionUserAction } from '@core/store/session-user/session-user.actions';
+import { LoginSessionUserAction } from '@core/store/session-user/session-user.action';
 import { Observable } from 'rxjs';
+import { SessionUserState } from '@core/store/session-user/session-user.state';
+import { selectErrorMsg, selectIsLoading } from '@core/store/session-user/session-user.selector';
 
 @Component({
   selector: 'app-login',

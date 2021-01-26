@@ -1,22 +1,45 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { from, of } from 'rxjs';
-import { map, catchError, exhaustMap, tap } from 'rxjs/operators';
-import { SessionUserActionTypes } from '@core/store/session-user/session-user.action.types';
+import { map, catchError, exhaustMap, tap, switchMap, finalize } from 'rxjs/operators';
+import { SessionUserActionType } from '@core/store/session-user/session-user.action.type';
 import {
   LoginSessionUserFailAction, LoginSessionUserCompleteAction,
-  LogoutSessionUserCompleteAction, LogoutSessionUserFailAction
-} from '@core/store/session-user/session-user.actions';
+  LogoutSessionUserCompleteAction, LogoutSessionUserFailAction,
+  LoadSessionUserAction, LoadSessionUserCompleteAction, LoadSessionUserFailAction
+} from '@core/store/session-user/session-user.action';
 
-import { AuthenticationService } from '@core/services/authentication.service';
+import { AuthenticationService } from '@core/service/authentication.service';
 import { Router } from '@angular/router';
+import { Action } from '@ngrx/store';
 
 @Injectable()
-export class SessionUserEffects {
+export class SessionUserEffect implements OnInitEffects {
+
+  loadSessionUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SessionUserActionType.LOAD),
+      switchMap(() => this.authService.user$
+        .pipe(
+          map(user => {
+            if (user) {
+              const sessionUser = {
+                id: user.uid
+              };
+              return LoadSessionUserCompleteAction( { sessionUser } );
+            } else {
+              return LoadSessionUserFailAction();
+            }
+          }),
+          catchError((error) => of(LoadSessionUserFailAction())),
+          finalize(() => console.warn('load session user is finalized'))
+        ))
+    )
+  );
 
   loginSessionUser$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(SessionUserActionTypes.LOGIN),
+      ofType(SessionUserActionType.LOGIN),
       map(({ email, password }) => {
         return {
           email,
@@ -32,7 +55,6 @@ export class SessionUserEffects {
             return LoginSessionUserCompleteAction( { sessionUser } );
           }),
           catchError((error) => {
-            console.log('in LoginSessionUserEffects', error);
             return of(LoginSessionUserFailAction( { error }));
           })
         )
@@ -42,12 +64,11 @@ export class SessionUserEffects {
 
   logoutSessionUser$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(SessionUserActionTypes.LOGOUT),
+      ofType(SessionUserActionType.LOGOUT),
       exhaustMap(() => from(this.authService.logout())
         .pipe(
           map(p => LogoutSessionUserCompleteAction()),
           catchError((error) => {
-            console.log('in LogoutSessionUserEffects', error);
             return of(LogoutSessionUserFailAction( { error }));
           })
         )),
@@ -56,7 +77,7 @@ export class SessionUserEffects {
 
   loginSessionUserComplete$ = createEffect(() =>
       this.actions$.pipe(
-        ofType(SessionUserActionTypes.LOGIN_COMPLETE),
+        ofType(SessionUserActionType.LOGIN_COMPLETE, SessionUserActionType.LOAD_COMPLETE),
         exhaustMap(() => this.router.navigate(['/home']))
       ),
     { dispatch: false }
@@ -64,7 +85,7 @@ export class SessionUserEffects {
 
   logoutSessionUserComplete$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(SessionUserActionTypes.LOGOUT_COMPLETE),
+      ofType(SessionUserActionType.LOGOUT_COMPLETE, SessionUserActionType.LOAD_FAIL),
       exhaustMap(() => this.router.navigate(['/auth']))
     ),
     { dispatch: false }
@@ -72,7 +93,9 @@ export class SessionUserEffects {
 
   logActions$ = createEffect(() =>
     this.actions$.pipe(
-      tap(action => console.log('effects logger', action))
+      tap(action => {
+        // console.log('|EFFECTS LOGGER|', action);
+      }),
     ), { dispatch: false });
 
   constructor(
@@ -80,4 +103,8 @@ export class SessionUserEffects {
     private authService: AuthenticationService,
     private router: Router
   ) {}
+
+  ngrxOnInitEffects(): Action {
+    return LoadSessionUserAction();
+  }
 }

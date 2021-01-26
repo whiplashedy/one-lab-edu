@@ -1,21 +1,31 @@
 import {
   CanActivate,
-  CanLoad,
-  Router
+  CanLoad, Route,
+  Router, UrlSegment
 } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { selectIsLoggedIn, SessionUserState } from '@core/store/session-user/session-user.reducer';
+import { debounce, filter, take } from 'rxjs/operators';
+import { selectIsLoading, selectIsLoggedIn } from '@core/store/session-user/session-user.selector';
+import { SessionUserState } from '@core/store/session-user/session-user.state';
 
 @Injectable()
-export class MustBeAuthGuard implements CanLoad, CanActivate {
+export class MustBeAuthGuard implements CanLoad {
 
   constructor(private router: Router, private storeSessionUserStore: Store<SessionUserState>) {}
-  canActivate(): Observable<boolean> {
-    return this.storeSessionUserStore.select(selectIsLoggedIn);
-  }
-  canLoad(): Observable<boolean> {
-    return this.storeSessionUserStore.select(selectIsLoggedIn);
+
+  canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> {
+    return this.storeSessionUserStore.select(selectIsLoggedIn)
+      .pipe(
+        take(1),
+        debounce(() => {
+          return this.storeSessionUserStore.select(selectIsLoading)
+            .pipe(
+              filter(isLoading => !isLoading)
+            );
+        }),
+        take(1)
+      );
   }
 }

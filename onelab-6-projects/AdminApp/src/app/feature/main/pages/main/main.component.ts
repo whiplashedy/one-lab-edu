@@ -1,14 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {
-  selectFeature, selectIsLoading,
-  selectIsLoggedIn,
-  selectSessionUser,
-  SessionUserState
-} from '@core/store/session-user/session-user.reducer';
-import { LogoutSessionUserAction } from '@core/store/session-user/session-user.actions';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { SessionUserModel } from '@core/model/session-user.model';
+import { SessionUserState } from '@core/store/session-user/session-user.state';
+import { selectIsLoading, selectIsLoggedIn, selectSessionUser } from '@core/store/session-user/session-user.selector';
+import { LogoutSessionUserAction } from '@core/store/session-user/session-user.action';
 
 @Component({
   selector: 'app-main',

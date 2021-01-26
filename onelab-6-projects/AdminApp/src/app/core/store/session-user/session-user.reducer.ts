@@ -1,36 +1,22 @@
-import { Action, createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import {
+  LoadSessionUserAction, LoadSessionUserCompleteAction, LoadSessionUserFailAction,
   LoginSessionUserAction, LoginSessionUserCompleteAction, LoginSessionUserFailAction,
   LogoutSessionUserAction, LogoutSessionUserCompleteAction, LogoutSessionUserFailAction
-} from '@core/store/session-user/session-user.actions';
+} from '@core/store/session-user/session-user.action';
 
-import { SessionUserModel } from '@core/model/session-user.model';
-
-export interface SessionUserState {
-  isLoading: boolean;
-  isLoggedIn: boolean;
-  errorMsg?: string | null;
-  sessionUser: SessionUserModel;
-}
-
-export const initialSessionUserState: SessionUserState = {
-  isLoading: false,
-  isLoggedIn: false,
-  sessionUser: {
-    id: null,
-  }
-};
+import { initialSessionUserState } from '@core/store/session-user/session-user.state';
 
 const sessionUserReducerInternal = createReducer(
   initialSessionUserState,
 
-  on(LoginSessionUserAction, (state) => ({
+  on(LoadSessionUserAction, LoginSessionUserAction, (state) => ({
     ...state,
     isLoading: true,
     errorMsg: null
   })),
 
-  on(LoginSessionUserCompleteAction, (state, { sessionUser }) => ({
+  on(LoadSessionUserCompleteAction, LoginSessionUserCompleteAction, (state, { sessionUser }) => ({
     ...state,
     isLoading: false,
     isLoggedIn: true,
@@ -38,8 +24,15 @@ const sessionUserReducerInternal = createReducer(
     sessionUser
   })),
 
+  on(LoadSessionUserFailAction, (state) => {
+    return ({
+      ...state,
+      isLoggedIn: false,
+      isLoading: false,
+    });
+  }),
+
   on(LoginSessionUserFailAction, (state, { error }) => {
-    console.log('in LoginSessionUserFailReducer', error);
     return ({
       ...state,
       isLoading: false,
@@ -61,7 +54,6 @@ const sessionUserReducerInternal = createReducer(
   })),
 
   on(LogoutSessionUserFailAction, (state, { error }) => {
-    console.log('in LogoutSessionUserFailReducer', error);
     return ({
       ...state,
       isLoading: false,
@@ -73,24 +65,3 @@ const sessionUserReducerInternal = createReducer(
 export const sessionUserReducer = (state = initialSessionUserState, action: Action) =>
   sessionUserReducerInternal(state, action);
 
-export const selectFeature = createFeatureSelector<any, SessionUserState>('sessionUser');
-
-export const selectIsLoading = createSelector(
-  selectFeature,
-  (state: SessionUserState) => state.isLoading
-);
-
-export const selectIsLoggedIn = createSelector(
-  selectFeature,
-  (state: SessionUserState) => state.isLoggedIn
-);
-
-export const selectSessionUser = createSelector(
-  selectFeature,
-  (state: SessionUserState) => state.sessionUser
-);
-
-export const selectErrorMsg = createSelector(
-  selectFeature,
-  (state: SessionUserState) => state.errorMsg
-);
