@@ -6,7 +6,14 @@
 
     <p *ngIf="sessionUser$ | async; let sessionUser">UID is <strong>{{sessionUser.id}}</strong></p>
     <p *ngIf="isLoggedIn$ | async; let isLoggedIn">isLoggedIn is <strong>{{isLoggedIn}}</strong></p>
-    <button class="btn btn-primary" (click)="logout()">Log out</button>
-    <p class="text-center text-secondary text-truncate w-75 mx-auto" *ngIf="isLoading$ | async">Loading...</p>
+
+    <button mat-raised-button color="primary" type="button" (click)="logout()" [disabled]="(isLoading$ | async)">
+      Sign out
+      <mat-icon *ngIf="isLoading$ | async">
+        <mat-spinner color="accent" diameter="20"></mat-spinner>
+      </mat-icon>
+    </button>
+    <p class="auth__text auth__text--danger fade-in mat-body" *ngIf="errorMsg$ | async; let errorMsg">{{ errorMsg }}</p>
+
   </div>
 </div>

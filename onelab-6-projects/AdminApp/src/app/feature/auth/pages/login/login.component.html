@@ -1,37 +1,41 @@
 <div class="background"></div>
-<div class="fade-in container d-flex vh-100 vw-100">
-  <div class="authform authform--transpgray authform--shadow mx-auto my-auto" *ngIf="loginForm">
-    <form class="form-group" [formGroup]="loginForm" (ngSubmit)="login()">
-      <h3 class="authform__title text-center my-3">Login</h3>
 
-      <input class="form-control authform--text-input d-block w-75 mt-1 mx-auto p-2"
-             type="text"
-             placeholder="Enter email"
-             formControlName= "email"
-             [ngClass]="{ 'is-invalid': this.email?.touched && this.email?.errors }"
-             autofocus/>
-      <div *ngIf="email?.touched && email?.errors" class="invalid-feedback text-center w-75 h-100 mx-auto">
-        <div *ngIf="email?.errors?.required" class="small">Email is required</div>
-        <div *ngIf="email?.errors?.email" class="small">Email must be valid</div>
-        <div *ngIf="email?.errors?.maxlength" class="small">Email is too long</div>
-      </div>
-      <input class="form-control authform--text-input d-block w-75 mt-1 mx-auto p-2"
-             type="password"
-             placeholder="Enter password"
-             formControlName= "password"
-             [ngClass]="{ 'is-invalid': this.password?.touched && this.password?.errors }"/>
-      <div *ngIf="password?.touched && password?.errors" class="text-center invalid-feedback w-75 h-100 mx-auto">
-        <div *ngIf="password?.errors?.required" class="small">Password is required</div>
-        <div *ngIf="password?.errors?.minlength" class="small">Password is too short</div>
-        <div *ngIf="password?.errors?.maxlength" class="small">Password is too long</div>
-      </div>
-      <button type="submit"
-              class="btn btn-primary text-truncate d-block w-75 p-1 mt-3 mb-1 mx-auto"
-              [disabled]="loginForm.invalid || (isLoading$ | async)">
-        Login
-      </button>
-      <p class="text-center text-secondary text-truncate w-75 mx-auto" *ngIf="isLoading$ | async">Loading...</p>
-      <p class="text-center text-danger small w-75 mx-auto" *ngIf="errorMsg$ | async; let errorMsg">{{ errorMsg }}</p>
-    </form>
+<div class="auth mat-typography">
+  <div class="fade-in auth__container">
+    <div class="auth__wrapper" *ngIf="loginForm">
+      <form class="form-group auth__form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <h2 class="auth__title mat-h2">Login</h2>
+
+        <mat-form-field class="mat-form-field" appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email" autocomplete="off" required>
+          <mat-error *ngIf="email?.touched && email?.invalid">
+            <span *ngIf="email?.errors?.required">This field is mandatory. </span>
+            <span *ngIf="email?.errors?.email">This email is invalid. </span>
+            <span *ngIf="email?.errors?.maxlength">This email is too long. </span>
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field class="mat-form-field" appearance="outline">
+          <mat-label> Password
+          </mat-label>
+          <input matInput formControlName="password" type="password" required>
+          <mat-error *ngIf="password?.touched && password?.invalid">
+            <span *ngIf="password?.errors?.required">This field is mandatory. </span>
+            <span *ngIf="password?.errors?.minlength">This password is too short. </span>
+            <span *ngIf="password?.errors?.maxlength">This password is too long. </span>
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || (isLoading$ | async)">
+          Sign in
+          <mat-icon *ngIf="isLoading$ | async">
+            <mat-spinner color="accent" diameter="20"></mat-spinner>
+          </mat-icon>
+        </button>
+        <p class="auth__text auth__text--danger fade-in mat-body" *ngIf="errorMsg$ | async; let errorMsg">{{ errorMsg }}</p>
+      </form>
+    </div>
   </div>
 </div>

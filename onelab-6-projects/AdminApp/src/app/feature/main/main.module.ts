@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './pages/main/main.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -10,7 +13,10 @@ import { MainComponent } from './pages/main/main.component';
   ],
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    MatButtonModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class MainModule {
