@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "AdminApp"
+  "defaultProject": "AdminApp",
+  "cli": {
+    "analytics": false
+  }
 }

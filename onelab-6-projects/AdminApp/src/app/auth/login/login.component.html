@@ -1,0 +1,19 @@
+<div>
+
+
+    <h1>
+        Авторизация
+    </h1>
+    <form [formGroup]="profileForm" (ngSubmit) = "submit()">
+        <label>
+            login:
+            <input type="text" formControlName = "login" >
+
+        </label>
+        <label >
+            password:
+            <input type="text" formControlName = "password">
+        </label>
+        <button type="submit">ok</button>
+    </form>
+</div>
