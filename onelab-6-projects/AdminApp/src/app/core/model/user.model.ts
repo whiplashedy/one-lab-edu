@@ -1,25 +1,15 @@
-interface Role {
-  id: string;
-  roleName: string;
-  status: boolean;
-}
-
-interface Product {
-  id: string;
-  displayName: string;
-  barcode: string;
-  // categories?: Category[];
-}
+import { ProductModel } from '@core/model/product.model';
+import { RoleModel } from '@core/model/role.model';
 
 export interface UserModel {
-  id?: string | null;
-  role: Role;
+  id: string;
+  role: RoleModel;
   fullName?: string | null;
   username?: string | null;
   phoneNumber?: string | null;
   shopName?: string | null;
   status: boolean;
-  products?: Product[]
+  products?: ProductModel[];
 }
 
 

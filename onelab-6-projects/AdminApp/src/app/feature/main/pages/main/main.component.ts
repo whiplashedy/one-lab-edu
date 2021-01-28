@@ -23,10 +23,6 @@ export class MainComponent implements OnInit, OnDestroy {
 
   constructor(private storeSessionUser: Store<SessionUserState>) { }
 
-  ngOnInit(): void {}
-
-  ngOnDestroy(): void {}
-
   get sessionUser$(): Observable<SessionUserModel> {
     return this.storeSessionUser.select(selectSessionUser);
   }
@@ -43,47 +39,6 @@ export class MainComponent implements OnInit, OnDestroy {
     return this.storeSessionUser.select(selectErrorMsg);
   }
 
-  get users(): UserModel[] {
-    return [
-      {
-        fullName: 'Arystan Kalimov',
-        username: 'Rake?',
-        phoneNumber: '+7 777 777 77 77',
-        role: {
-          id: '1',
-          roleName: 'admin',
-          status: true,
-        },
-        shopName: 'One Technologies',
-        status: true
-      },
-      {
-        fullName: 'Damir Kalimov',
-        username: null,
-        phoneNumber: '+7 777 777 77 77',
-        role: {
-          id: '2',
-          roleName: 'seller',
-          status: true,
-        },
-        shopName: 'One Technologies',
-        status: false
-      },
-      {
-        fullName: 'Arystan Alimov',
-        username: 'Rake?',
-        phoneNumber: '+7 777 777 77 77',
-        role: {
-          id: '1',
-          roleName: 'admin',
-          status: true,
-        },
-        shopName: 'One Technologies',
-        status: true
-      }
-    ];
-  }
-
   get displayedColumns(): string[] {
     return [
       'fullName',
@@ -97,6 +52,52 @@ export class MainComponent implements OnInit, OnDestroy {
     ];
   }
 
+  users: UserModel[] = [
+      {
+        id: '1',
+        fullName: 'Arystan Kalimov',
+        username: 'Rake?',
+        phoneNumber: '+7 777 777 77 77',
+        role: {
+          id: '1',
+          roleName: 'admin',
+          status: true,
+        },
+        shopName: 'One Technologies',
+        status: true
+      },
+      {
+        id: '2',
+        fullName: 'Damir Kalimov',
+        username: null,
+        phoneNumber: '+7 777 777 77 77',
+        role: {
+          id: '2',
+          roleName: 'seller',
+          status: true,
+        },
+        shopName: 'One Technologies',
+        status: false
+      },
+      {
+        id: '3',
+        fullName: 'Arystan Alimov',
+        username: 'Rake?',
+        phoneNumber: '+7 777 777 77 77',
+        role: {
+          id: '1',
+          roleName: 'admin',
+          status: true,
+        },
+        shopName: 'One Technologies',
+        status: true
+      }
+    ];
+
+  ngOnInit(): void {}
+
+  ngOnDestroy(): void {}
+
   logout = () => {
     this.storeSessionUser.dispatch(LogoutSessionUserAction());
   }
@@ -108,10 +109,10 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   onEdit = (element?: UserModel) => {
-    alert(element + ' edit');
+    alert(element?.fullName + ' edit');
   }
 
   onSave = (element?: UserModel) => {
-    alert(element + ' saved');
+    alert(element?.fullName + ' saved');
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { from, of } from 'rxjs';
-import { map, catchError, exhaustMap, tap, switchMap, finalize } from 'rxjs/operators';
+import { map, catchError, exhaustMap, tap, switchMap, finalize, take } from 'rxjs/operators';
 import { SessionUserActionType } from '@core/store/session-user/session-user.action.type';
 import {
   LoginSessionUserFailAction, LoginSessionUserCompleteAction,
@@ -21,6 +21,7 @@ export class SessionUserEffect implements OnInitEffects {
       ofType(SessionUserActionType.LOAD),
       switchMap(() => this.authService.user$
         .pipe(
+          take(1),
           map(user => {
             if (user) {
               const sessionUser = {
@@ -31,8 +32,7 @@ export class SessionUserEffect implements OnInitEffects {
               return LoadSessionUserFailAction();
             }
           }),
-          catchError((error) => of(LoadSessionUserFailAction())),
-          finalize(() => console.warn('load session user is finalized'))
+          catchError((error) => of(LoadSessionUserFailAction()))
         ))
     )
   );
