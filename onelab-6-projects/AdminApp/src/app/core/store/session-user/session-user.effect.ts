@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { from, of } from 'rxjs';
-import { map, catchError, exhaustMap, tap, switchMap, finalize, take } from 'rxjs/operators';
+import { map, catchError, exhaustMap, tap, switchMap, take } from 'rxjs/operators';
 import { SessionUserActionType } from '@core/store/session-user/session-user.action.type';
 import {
   LoginSessionUserFailAction, LoginSessionUserCompleteAction,
@@ -19,13 +19,14 @@ export class SessionUserEffect implements OnInitEffects {
   loadSessionUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SessionUserActionType.LOAD),
-      switchMap(() => this.authService.user$
+      switchMap(() => this.authService.sessionUser$
         .pipe(
           take(1),
           map(user => {
             if (user) {
               const sessionUser = {
-                id: user.uid
+                uid: user.uid,
+                role: user.role,
               };
               return LoadSessionUserCompleteAction( { sessionUser } );
             } else {
@@ -48,12 +49,23 @@ export class SessionUserEffect implements OnInitEffects {
       }),
       exhaustMap((userCredentials) => from(this.authService.login(userCredentials.email, userCredentials.password))
         .pipe(
-          map(authState => {
-            const sessionUser = {
-              id: authState.user?.uid
-            };
-            return LoginSessionUserCompleteAction( { sessionUser } );
-          }),
+          switchMap((authState) => this.authService.sessionUser$
+            .pipe(
+              take(1),
+              map(user => {
+                if (user) {
+                  const sessionUser = {
+                    uid: user.uid,
+                    role: user.role,
+                  };
+                  return LoginSessionUserCompleteAction( { sessionUser } );
+                } else {
+                  return LoginSessionUserFailAction({ error: Error('No session user!') });
+                }
+              }),
+              catchError((error) => of(LoginSessionUserFailAction({ error })))
+            )
+          ),
           catchError((error) => {
             return of(LoginSessionUserFailAction( { error }));
           })

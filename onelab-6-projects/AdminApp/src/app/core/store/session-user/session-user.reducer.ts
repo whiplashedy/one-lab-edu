@@ -50,6 +50,7 @@ const sessionUserReducerInternal = createReducer(
     ...state,
     isLoading: false,
     isLoggedIn: false,
+    sessionUser: null,
     errorMsg: null
   })),
 

@@ -2,8 +2,10 @@
     <h3>Protected page</h3>
     <hr>
 
-    <p *ngIf="sessionUser$ | async; let sessionUser">UID is <strong>{{sessionUser.id}}</strong></p>
+    <p *ngIf="sessionUser$ | async; let sessionUser">UID is <strong>{{sessionUser.uid}}</strong></p>
     <p *ngIf="isLoggedIn$ | async; let isLoggedIn">isLoggedIn is <strong>{{isLoggedIn}}</strong></p>
+    <p *ngIf="sessionUser$ | async; let sessionUser">Given role is <strong>{{sessionUser.role}}</strong></p>
+
 
     <button mat-raised-button color="primary" type="button" (click)="logout()" [disabled]="(isLoading$ | async)">
       Sign out
@@ -20,7 +22,7 @@
                    [pageSize]="10"
                    [pageSizeOptions]="[5, 10, 25, 100]">
     </mat-paginator>
-    <table mat-table [dataSource]="users" class="mat-elevation-z8">
+    <table mat-table [dataSource]="users$" class="mat-elevation-z8">
       <!-- Full Name Column -->
       <ng-container matColumnDef="fullName">
         <th mat-header-cell *matHeaderCellDef> Full name </th>

@@ -4,13 +4,11 @@ export interface SessionUserState {
   isLoading: boolean;
   isLoggedIn: boolean;
   errorMsg?: string | null;
-  sessionUser: SessionUserModel;
+  sessionUser?: SessionUserModel | null;
 }
 
 export const initialSessionUserState: SessionUserState = {
   isLoading: false,
   isLoggedIn: false,
-  sessionUser: {
-    id: null,
-  }
+  sessionUser: null
 };

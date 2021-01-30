@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { SessionUserModel } from '@core/model/session-user.model';
 import { SessionUserState } from '@core/store/session-user/session-user.state';
@@ -12,6 +12,7 @@ import {
 } from '@core/store/session-user/session-user.selector';
 import { LogoutSessionUserAction } from '@core/store/session-user/session-user.action';
 import { UserModel } from '@core/model/user.model';
+import { AuthenticationService } from '@core/service/authentication.service';
 
 @Component({
   selector: 'app-main',
@@ -21,9 +22,13 @@ import { UserModel } from '@core/model/user.model';
 })
 export class MainComponent implements OnInit, OnDestroy {
 
-  constructor(private storeSessionUser: Store<SessionUserState>) { }
+  users$: Observable<UserModel[]>;
+  constructor(private storeSessionUser: Store<SessionUserState>,
+              private authService: AuthenticationService) {
+    this.users$ = authService.allUsers$;
+  }
 
-  get sessionUser$(): Observable<SessionUserModel> {
+  get sessionUser$(): Observable<SessionUserModel | null | undefined> {
     return this.storeSessionUser.select(selectSessionUser);
   }
 
@@ -54,41 +59,29 @@ export class MainComponent implements OnInit, OnDestroy {
 
   users: UserModel[] = [
       {
-        id: '1',
+        uid: '1',
         fullName: 'Arystan Kalimov',
         username: 'Rake?',
         phoneNumber: '+7 777 777 77 77',
-        role: {
-          id: '1',
-          roleName: 'admin',
-          status: true,
-        },
+        role: 'admin',
         shopName: 'One Technologies',
         status: true
       },
       {
-        id: '2',
+        uid: '2',
         fullName: 'Damir Kalimov',
         username: null,
         phoneNumber: '+7 777 777 77 77',
-        role: {
-          id: '2',
-          roleName: 'seller',
-          status: true,
-        },
+        role: 'seller',
         shopName: 'One Technologies',
         status: false
       },
       {
-        id: '3',
+        uid: '3',
         fullName: 'Arystan Alimov',
         username: 'Rake?',
         phoneNumber: '+7 777 777 77 77',
-        role: {
-          id: '1',
-          roleName: 'admin',
-          status: true,
-        },
+        role: 'admin',
         shopName: 'One Technologies',
         status: true
       }
